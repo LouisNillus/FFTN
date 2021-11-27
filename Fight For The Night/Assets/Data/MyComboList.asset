@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f22d98840794ba47bab3d7267cbb5fc, type: 3}
+  m_Name: MyComboList
+  m_EditorClassIdentifier: 
+  combos:
+  - comboName: Hello Combo
+    inputs:
+    - key: 100
+      inputType: 0
+      castTime: 0
+    - key: 103
+      inputType: 1
+      castTime: 0
+    - key: 103
+      inputType: 0
+      castTime: 0
+    - key: 100
+      inputType: 0
+      castTime: 0
+    animationName: 
+    damages: 0
+  - comboName: Le Classico
+    inputs:
+    - key: 103
+      inputType: 0
+      castTime: 0
+    - key: 100
+      inputType: 0
+      castTime: 0
+    - key: 100
+      inputType: 0
+      castTime: 0
+    - key: 103
+      inputType: 0
+      castTime: 0
+    animationName: 
+    damages: 0
+  - comboName: 5 O' 5
+    inputs:
+    - key: 103
+      inputType: 0
+      castTime: 0
+    - key: 103
+      inputType: 0
+      castTime: 0
+    - key: 103
+      inputType: 0
+      castTime: 0
+    - key: 100
+      inputType: 0
+      castTime: 0
+    - key: 100
+      inputType: 0
+      castTime: 0
+    animationName: 
+    damages: 0
+  - comboName: Cheval De Troie
+    inputs:
+    - key: 100
+      inputType: 0
+      castTime: 0
+    - key: 103
+      inputType: 0
+      castTime: 0
+    - key: 103
+      inputType: 0
+      castTime: 0
+    animationName: 
+    damages: 0
