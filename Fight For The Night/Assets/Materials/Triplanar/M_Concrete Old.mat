@@ -226,7 +226,7 @@ Material:
     - _SmoothnessRemapMax: 1
     - _SmoothnessRemapMin: 0
     - _Smoothness_Or_Roughness: 1
-    - _Smoothness_Power: 0.5
+    - _Smoothness_Power: -0.31
     - _SpecularAAScreenSpaceVariance: 0.1
     - _SpecularAAThreshold: 0.2
     - _SpecularOcclusionMode: 1
@@ -281,7 +281,7 @@ Material:
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
     - _ThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
     - _Tiling: {r: 2, g: 2, b: 0, a: 0}
-    - _Tilling: {r: 0.6, g: 0.6, b: 0.6, a: 0}
+    - _Tilling: {r: 0.4, g: 3, b: 0.6, a: 0}
     - _TransmittanceColor: {r: 1, g: 1, b: 1, a: 1}
     - _UVDetailsMappingMask: {r: 1, g: 0, b: 0, a: 0}
     - _UVMappingMask: {r: 1, g: 0, b: 0, a: 0}
