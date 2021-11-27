@@ -28,7 +28,7 @@ public class Buffer : MonoBehaviour
             if (clearDelay != null) StopCoroutine(clearDelay);
             queue.Add(new ComboInput(KeyCode.D, TypeOfInput.Movement));
             clearDelay = StartCoroutine(ClearDelay());
-
+            FindCombo(5);
         }
         if (Input.GetKeyDown(KeyCode.G))
         {
@@ -36,7 +36,7 @@ public class Buffer : MonoBehaviour
             if(clearDelay != null) StopCoroutine(clearDelay);
             queue.Add(new ComboInput(KeyCode.G, TypeOfInput.Hit, 0.05f));
             clearDelay = StartCoroutine(ClearDelay());
-
+            FindCombo(5);
         }
     }
 
