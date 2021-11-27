@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [Header("Stats")]
-    public int id;
     public float speed;
     public float backwardSpeed;
     [SerializeField]
@@ -16,6 +15,7 @@ public class PlayerController : MonoBehaviour
     public Transform self;
     public Rigidbody selfRigidbody;
     public Animator animator;
+    public InputProfile inputProfile;
 
     //private 
 
@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         // Get Movement
-        float x = Input.GetAxis("Horizontal");
+        float x = Input.GetAxis(inputProfile.horizontalAxis);
 
         #region AnimationMovements
         // Set root motion if the player is not moving
@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour
         #endregion
 
         #region AnimationHits
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetKeyDown(inputProfile.heavyAttack))
         {
             animator.SetTrigger("Hit");
             animator.applyRootMotion = false;

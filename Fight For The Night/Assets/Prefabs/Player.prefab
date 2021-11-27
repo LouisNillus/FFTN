@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3227897142743144303}
   - component: {fileID: 3227897142743144302}
-  - component: {fileID: 3227897142743144300}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -31,6 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3116897917419151999}
+  - {fileID: 5184375347087892136}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 125, z: 0}
@@ -50,13 +50,45 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 3
---- !u!65 &3227897142743144300
+--- !u!1 &8121604813170019039
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5184375347087892136}
+  - component: {fileID: 1062733696625494203}
+  m_Layer: 3
+  m_Name: GravityCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5184375347087892136
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8121604813170019039}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3227897142743144303}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1062733696625494203
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3227897142743144304}
+  m_GameObject: {fileID: 8121604813170019039}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
@@ -167,10 +199,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a02a1613fc99c81458efd9fd376ae0cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
   speed: 100
   backwardSpeed: 50
   _hp: 0
   self: {fileID: 3227897142743144303}
   selfRigidbody: {fileID: 3227897142743144302}
   animator: {fileID: 9052621114459666437}
+  inputProfile: {fileID: 0}
+--- !u!114 &7603085096232924891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2308836467375093957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9eccb0fc2c049641823cad05bb3e85b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  queue: []
+  allCombos: {fileID: 11400000, guid: f1606c762aaf5264faabbc0dfd934359, type: 2}
+  clearCooldown: 0.5
