@@ -21,7 +21,6 @@ public class IsAnimationFinished : StateMachineBehaviour
     {
         PlayerController player = animator.GetComponent<PlayerController>();
         player.isPlayingHitAnimations = false;
-        player.rig.localPosition = Vector3.zero;
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
