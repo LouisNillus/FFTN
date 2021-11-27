@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private int _hp = 200;
     public int hp { get { return _hp; } }
+    public float cooldownBetweenTwoInputs;
 
     [Header("References")]
     public Transform self;
@@ -18,53 +19,103 @@ public class PlayerController : MonoBehaviour
     public Animator animator;
     public InputProfile inputProfile;
 
-    private bool _isPlayingHitAnimations;
-    public bool isPlayingHitAnimations { set { _isPlayingHitAnimations = value; } }
+    private float lastMoveX;
+
+    private bool canPressInput;
+    private bool _isPlayingHitAnimationsWithRootMotion;
+    public bool isPlayingHitAnimationsWithRootMotion { set { _isPlayingHitAnimationsWithRootMotion = value; } }
+    private bool _isCurrentAnimIsFinished;
+    public bool isCurrentAnimIsFinished { set { _isCurrentAnimIsFinished = value; } }
 
     // Start is called before the first frame update
     void Start()
     {
-        _isPlayingHitAnimations = false;
+        canPressInput = true;
+        _isPlayingHitAnimationsWithRootMotion = false;
+        _isCurrentAnimIsFinished = false;
+    }
+
+    IEnumerator CooldownBetweenTwoInputs()
+    {
+        canPressInput = false;
+        yield return new WaitForSeconds(cooldownBetweenTwoInputs);
+        canPressInput = true;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         #region AnimationHits
-        if (Input.GetKey(inputProfile.heavyAttack) && !_isPlayingHitAnimations)
+        if (Input.GetKey(inputProfile.heavyAttack) && canPressInput)
         {
-            animator.SetTrigger("Hit");
+            animator.SetTrigger("HeavyHit");
             rig.localPosition = Vector3.zero;
-            animator.applyRootMotion = false;
-            _isPlayingHitAnimations = true;
+            animator.applyRootMotion = true;
+            _isPlayingHitAnimationsWithRootMotion = true;
+            StartCoroutine(CooldownBetweenTwoInputs());
+        }
+
+        if (Input.GetKey(inputProfile.mediumAttack) && canPressInput)
+        {
+            animator.SetTrigger("NormalHit");
+            rig.localPosition = Vector3.zero;
+            animator.applyRootMotion = true;
+            _isPlayingHitAnimationsWithRootMotion = true;
+            StartCoroutine(CooldownBetweenTwoInputs());
+        }
+
+        if (Input.GetKey(inputProfile.lightAttack) && canPressInput)
+        {
+            animator.SetTrigger("LightHit");
+            rig.localPosition = Vector3.zero;
+            animator.applyRootMotion = true;
+            _isPlayingHitAnimationsWithRootMotion = true;
+            StartCoroutine(CooldownBetweenTwoInputs());
         }
         #endregion
 
         // Get Movement
-        float x = Input.GetAxis(inputProfile.horizontalAxis);
+        float moveX = Input.GetAxis(inputProfile.horizontalAxis);
 
-        if ((x < 0.1 && x > -0.1) && !_isPlayingHitAnimations)
+        if ((moveX < 0.1 && moveX > -0.1) || _isPlayingHitAnimationsWithRootMotion)
             animator.applyRootMotion = true;
         else
         {
             animator.applyRootMotion = false;
-            //rig.localPosition = Vector3.zero;
         }
 
         #region AnimationMovements
-        if (x < 0.0f)
+        if (moveX != 0.0f)
         {
-            // Apply movement
-            selfRigidbody.velocity = Vector3.right * x * backwardSpeed * Time.deltaTime;
+            if (moveX < 0.0f)
+            {
+                // Apply movement
+                selfRigidbody.velocity = Vector3.right * moveX * backwardSpeed * Time.deltaTime;
+            }
+            else if (moveX > 0.0f)
+            {
+                // Apply movement
+                selfRigidbody.velocity = Vector3.right * moveX * speed * Time.deltaTime;
+            }
+
+            // Update Anim
+            animator.SetFloat("Speed", selfRigidbody.velocity.x, 0.02f, Time.deltaTime);
         }
-        else if (x >= 0.0f)
+        else
         {
-            // Apply movement
-            selfRigidbody.velocity = Vector3.right * x * speed * Time.deltaTime;
+            if (lastMoveX == moveX)
+            {
+                animator.SetFloat("Speed", moveX, 0.02f, Time.deltaTime);
+            }
         }
 
-        // Update Anim
-        animator.SetFloat("Speed", selfRigidbody.velocity.x, 0.2f, Time.deltaTime);
+        lastMoveX = moveX;
         #endregion
+
+        if (_isCurrentAnimIsFinished)
+        {
+            _isCurrentAnimIsFinished = false;
+            rig.localPosition = Vector3.zero;
+        }
     }
 }

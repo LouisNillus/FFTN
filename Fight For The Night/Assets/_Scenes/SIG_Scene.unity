@@ -595,6 +595,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3227897142743144304, guid: 73ad5d0c34206e64dbb77e2bbcb88e71, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73ad5d0c34206e64dbb77e2bbcb88e71, type: 3}
 --- !u!1 &1964788068
@@ -788,6 +792,18 @@ PrefabInstance:
       propertyPath: inputProfile
       value: 
       objectReference: {fileID: 11400000, guid: 154a5b50840475b46bb23095c0bcfe55, type: 2}
+    - target: {fileID: 2317545380725246086, guid: 73ad5d0c34206e64dbb77e2bbcb88e71, type: 3}
+      propertyPath: backwardSpeed
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 2317545380725246086, guid: 73ad5d0c34206e64dbb77e2bbcb88e71, type: 3}
+      propertyPath: cooldownBetweenTwoInputs
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2745529081282566746, guid: 73ad5d0c34206e64dbb77e2bbcb88e71, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3116897917419151999, guid: 73ad5d0c34206e64dbb77e2bbcb88e71, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
