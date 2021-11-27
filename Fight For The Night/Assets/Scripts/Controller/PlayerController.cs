@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         #region AnimationHits
-        if (Input.GetKeyDown(inputProfile.heavyAttack) && !_isPlayingHitAnimations)
+        if (Input.GetKey(inputProfile.heavyAttack) && !_isPlayingHitAnimations)
         {
             animator.SetTrigger("Hit");
             rig.localPosition = Vector3.zero;
@@ -52,7 +52,10 @@ public class PlayerController : MonoBehaviour
         if ((x < 0.1 && x > -0.1) && !_isPlayingHitAnimations)
             animator.applyRootMotion = true;
         else
+        {
             animator.applyRootMotion = false;
+            rig.localPosition = Vector3.zero;
+        }
 
         if (x < -0.1f)
         {
