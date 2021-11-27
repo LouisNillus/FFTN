@@ -26,7 +26,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 45264
+  controlID: 51142
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -143,7 +143,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 45197
+  controlID: 51143
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -686,7 +686,7 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -122446
+  m_LastSelectedObjectID: -127390
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -711,7 +711,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 45265
+  controlID: 51105
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -769,9 +769,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: b221feff
-      m_LastClickedID: -122446
-      m_ExpandedIDs: 6436e0ffbe5be0ff22c5e0ff167de2ff207de2ff2a7de2ff307de2ff467de2ff587de2ff6e7de2ff3ce7e2ff72fce2ff4466e3ff4eace3ffa8d1e3ffe21de5ffcc1fe5ffd61fe5ffe01fe5ffe61fe5fffc1fe5ff0e20e5ff2420e5ff7837e5ff2282e6ff7896e6ffe0ffe6ff9022e7ff4438e7ff7ee9e9ffd4ebe9ffdeebe9ffe8ebe9ffeeebe9ff04ece9ff16ece9ff2cece9ff1231eaff0855eaff2c69eaffb452ecffe08eecffc2d3ecffa45bedff6ae3edffa428eeff8a6deeff1473eeff48b8eeff6af3eeff862eefffa469efff4caaefffccfff0ff4446f1ff7881f1ff8409f2ffb847f2ff40d0f2ff1816f3ff9228f3ffcc3cf3ff7c5ff3fff671f3ff5edbf3ff4020f4ff645bf4ffba72f4ff408af4ff66c5f4ff884df5ff6c92f5ff8cd8f5ffda2af6ff2240f6ffde68f7ffe868f7fff268f7fff868f7ff1069f7ff2269f7ffa269f7ff1e72f7ff2872f7ff3272f7ff3872f7ff5072f7ff1cbdf7ffdc5cf8ff8281f8ff8c81f8ff9eacf8ffa2acf8ff9ab3f8ffa4b3f8ffaeb3f8ffb8b3f8ffcab3f8ff76b5f8ffccb7f8ffe0b7f8ffe6b7f8fffab7f8ff0cb8f8ff60c4f8ff98d4f8ffa2d4f8ffacd4f8ffbed4f8ff6ad6f8ffc0d8f8ffcad8f8ffd4d8f8ffdad8f8fff2d8f8ff04d9f8ff2c0ff9ff2c49f9ff3e69f9ff1288f9ff1c88f9ff2688f9ff3088f9ff4288f9ffa489f9ffae89f9ffb889f9ffc289f9ffee89f9ff448cf9ff4e8cf9ff588cf9ff5e8cf9ff748cf9ff868cf9ffc098f9ff6027faffac39faff0c42faff1642faff2042faff2642faff3e42faff8487faffc23afbffdc64fbffbedefbff38b4fcffa2bafcffbcbafcff78d3fcffacdbfcffbceafcff3002fdff5416fdfff438fdff544bfdffacb4fdffc4effdffb221feff6c23feffd036feffd836feffcea2feff2810fffffa6fffff0670ffff9ce5ffffe2ebffffeeebffff32f9ffffbcfaffff02fbfffff4ffffffba4f00006e500000a6500000f05100002e5200006c5200009a520000a45200007653000086530000cc55000076560000b6770000a6e8060068e906004aeb0600baeb060036ec0600e2ef060070f0060016f106002af1060044f2060070f906008af9060042fb060096340d0028481000806e1000e65e11006c0d1200581012008c88150024361700f03717005cb317006ac81700e4de170098f617005cf817007415180034ce180042e31800
+      m_SelectedIDs: 26e0ffff
+      m_LastClickedID: -8154
+      m_ExpandedIDs: 6436e0ffbe5be0ff22c5e0ff167de2ff207de2ff2a7de2ff307de2ff467de2ff587de2ff6e7de2ff3ce7e2ff72fce2ff4466e3ff4eace3ffa8d1e3ffe21de5ffcc1fe5ffd61fe5ffe01fe5ffe61fe5fffc1fe5ff0e20e5ff2420e5ff7837e5ff2282e6ff7896e6ffe0ffe6ff9022e7ff4438e7ff7ee9e9ffd4ebe9ffdeebe9ffe8ebe9ffeeebe9ff04ece9ff16ece9ff2cece9ff1231eaff0855eaff2c69eaffb452ecffe08eecffc2d3ecffa45bedff6ae3edffa428eeff8a6deeff1473eeff48b8eeff6af3eeff862eefffa469efff4caaefffccfff0ff4446f1ff7881f1ff8409f2ffb847f2ff40d0f2ff1816f3ff9228f3ffcc3cf3ff7c5ff3fff671f3ff5edbf3ff4020f4ff645bf4ffba72f4ff408af4ff66c5f4ff884df5ff6c92f5ff8cd8f5ffda2af6ff2240f6ffde68f7ffe868f7fff268f7fff868f7ff1069f7ff2269f7ffa269f7ff1e72f7ff2872f7ff3272f7ff3872f7ff5072f7ff1cbdf7ffdc5cf8ff8281f8ff8c81f8ff9eacf8ffa2acf8ff9ab3f8ffa4b3f8ffaeb3f8ffb8b3f8ffcab3f8ff76b5f8ffccb7f8ffe0b7f8ffe6b7f8fffab7f8ff0cb8f8ff60c4f8ff98d4f8ffa2d4f8ffacd4f8ffbed4f8ff6ad6f8ffc0d8f8ffcad8f8ffd4d8f8ffdad8f8fff2d8f8ff04d9f8ff2c0ff9ff2c49f9ff3e69f9ff1288f9ff1c88f9ff2688f9ff3088f9ff4288f9ffa489f9ffae89f9ffb889f9ffc289f9ffee89f9ff448cf9ff4e8cf9ff588cf9ff5e8cf9ff748cf9ff868cf9ffc098f9ff6027faffac39faff0c42faff1642faff2042faff2642faff3e42faff8487faffc23afbffdc64fbffbedefbff38b4fcffa2bafcffbcbafcff78d3fcffbceafcff3002fdff5416fdfff438fdff544bfdffacb4fdffc4effdffb221feff6c23feffd036feffd836feffcea2feff2810fffffa6fffff0670ffff9ce5ffffe2ebffffeeebffff32f9ffffbcfaffff02fbfffff4ffffffba4f00006e500000a6500000f05100002e5200006c5200009a520000a45200007653000086530000cc55000076560000b6770000a6e8060068e906004aeb0600baeb060036ec0600e2ef060070f0060016f106002af1060044f2060070f906008af9060042fb060096340d0028481000806e1000e65e11006c0d1200581012008c88150024361700f03717005cb317006ac81700e4de170098f617005cf817007415180034ce180042e31800
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -916,21 +916,21 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/2D
+    - Assets/Fonts
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/2D
+  - Assets/Fonts
   m_LastFoldersGridSize: 16
   m_LastProjectPath: D:\GITHUB\FFTN\Fight For The Night
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: f4790000
-    m_LastClickedID: 31220
+    m_SelectedIDs: 007a0000
+    m_LastClickedID: 31232
     m_ExpandedIDs: 000000005a79000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -984,8 +984,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: b221feff
-    m_LastClickedInstanceID: -122446
+    m_SelectedInstanceIDs: 26e0ffff
+    m_LastClickedInstanceID: -8154
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: 2c49000000000000
     m_RenameOverlay:
@@ -1076,7 +1076,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 0
+  m_LastVerticalScrollValue: 160
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:

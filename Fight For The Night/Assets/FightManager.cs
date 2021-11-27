@@ -19,7 +19,8 @@ public class FightManager : MonoBehaviour
         instance = this;
     }
 
-    private void Start()
+
+    public void StartGame()
     {
         StartCoroutine(StartTimer());
     }
