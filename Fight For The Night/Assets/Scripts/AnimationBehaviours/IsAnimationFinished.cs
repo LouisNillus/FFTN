@@ -20,14 +20,16 @@ public class IsAnimationFinished : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateinfo, int layerindex)
     {
         PlayerController player = animator.GetComponent<PlayerController>();
-        player.isPlayingHitAnimations = false;
+        player.isPlayingHitAnimationsWithRootMotion = false;
+        player.isCurrentAnimIsFinished = true;
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
-    //override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    // Implement code that processes and affects root motion
-    //}
+    /*override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        PlayerController player = animator.GetComponent<PlayerController>();
+        //player.rig.localPosition = new Vector3(0.0f, player.rig.localPosition.y, 0.0f);
+    }*/
 
     // OnStateIK is called right after Animator.OnAnimatorIK()
     //override public void OnStateIK(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
