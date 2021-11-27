@@ -17,7 +17,7 @@ public class MainMenu : MonoBehaviour
 
     public bool muted = false;
 
-    public
+    
 
     // Start is called before the first frame update
     void Start()
