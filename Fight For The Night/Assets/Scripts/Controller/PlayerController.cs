@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // Update Anim
-        animator.SetFloat("Speed", selfRigidbody.velocity.x, 0.1f, Time.deltaTime);
+        animator.SetFloat("Speed", selfRigidbody.velocity.x, 0.2f, Time.deltaTime);
         #endregion
     }
 }
