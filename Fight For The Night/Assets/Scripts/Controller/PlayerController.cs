@@ -14,10 +14,12 @@ public class PlayerController : MonoBehaviour
     [Header("References")]
     public Transform self;
     public Rigidbody selfRigidbody;
+    public Transform rig;
     public Animator animator;
     public InputProfile inputProfile;
 
-    //private 
+    private float _originalRigYPos;
+    public float originalRigYPos { get { return _originalRigYPos; } }
 
     private bool _isPlayingHitAnimations;
     public bool isPlayingHitAnimations { set { _isPlayingHitAnimations = value; } }
@@ -26,11 +28,22 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         _isPlayingHitAnimations = false;
+        _originalRigYPos = rig.position.y;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        #region AnimationHits
+        if (Input.GetKeyDown(inputProfile.heavyAttack) && !_isPlayingHitAnimations)
+        {
+            animator.SetTrigger("Hit");
+            rig.localPosition = Vector3.zero;
+            animator.applyRootMotion = false;
+            _isPlayingHitAnimations = true;
+        }
+        #endregion
+
         // Get Movement
         float x = Input.GetAxis(inputProfile.horizontalAxis);
 
@@ -60,15 +73,6 @@ public class PlayerController : MonoBehaviour
             // Set speed to 0
             selfRigidbody.velocity = Vector3.zero;
             animator.SetFloat("Speed", 0.0f);
-        }
-        #endregion
-
-        #region AnimationHits
-        if (Input.GetKeyDown(inputProfile.heavyAttack))
-        {
-            animator.SetTrigger("Hit");
-            animator.applyRootMotion = false;
-            _isPlayingHitAnimations = true;
         }
         #endregion
     }

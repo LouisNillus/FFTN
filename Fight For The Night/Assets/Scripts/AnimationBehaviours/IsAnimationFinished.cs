@@ -19,7 +19,9 @@ public class IsAnimationFinished : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateinfo, int layerindex)
     {
-        animator.GetComponent<PlayerController>().isPlayingHitAnimations = false;
+        PlayerController player = animator.GetComponent<PlayerController>();
+        player.isPlayingHitAnimations = false;
+        player.rig.localPosition = Vector3.zero;
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
