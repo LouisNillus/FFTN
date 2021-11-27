@@ -21,7 +21,7 @@ public class ComboInput
 }
 
 
-public enum TypeOfInput {Movement, Hit}
+public enum TypeOfInput {Hit, Movement}
 
 // Player 1 :
 // Y = 3 = Pied gauche
