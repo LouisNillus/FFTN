@@ -10,6 +10,8 @@ public class PlayerHitsManager : MonoBehaviour
     public HitMember leftFoot;
     public HitMember rightFoot;
 
+    public Buffer buffer;
+
     public string thisPlayerTag;
     public string otherPlayerTag;
     public List<GameObject> bodyParts = new List<GameObject>();
@@ -26,4 +28,23 @@ public class PlayerHitsManager : MonoBehaviour
     {
         
     }
+
+    public HitMember GetHitMemberFromType(HitMemberName memberName)
+    {
+        switch (memberName)
+        {
+            case HitMemberName.LeftHand:
+                return leftHand;
+            case HitMemberName.RightHand:
+                return rightHand;
+            case HitMemberName.LeftFoot:
+                return leftFoot;
+            case HitMemberName.RightFoot:
+                return rightFoot;
+        }
+
+        return null;
+    }
 }
+
+public enum HitMemberName {LeftHand, RightHand, LeftFoot, RightFoot}

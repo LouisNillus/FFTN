@@ -474,6 +474,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   phm: {fileID: 1932695379}
+  canHit: 0
 --- !u!136 &1955883814
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -527,6 +528,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   phm: {fileID: 1932695379}
+  canHit: 0
 --- !u!136 &1679968349
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -567,6 +569,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   phm: {fileID: 1932695379}
+  canHit: 0
 --- !u!135 &433853224
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -593,6 +596,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   phm: {fileID: 1932695379}
+  canHit: 0
 --- !u!136 &442003809
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -619,10 +623,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b51e9811cd39704e8a0f87e2470fe34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftHand: {fileID: 0}
-  rightHand: {fileID: 0}
-  leftFoot: {fileID: 0}
-  rightFoot: {fileID: 0}
+  leftHand: {fileID: 653720791}
+  rightHand: {fileID: 433853225}
+  leftFoot: {fileID: 61969683}
+  rightFoot: {fileID: 49555040}
+  buffer: {fileID: 2053292047715530116}
   thisPlayerTag: Player1
   otherPlayerTag: Player2
   bodyParts:
@@ -643,8 +648,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   queue: []
-  allCombos: {fileID: 11400000, guid: f1606c762aaf5264faabbc0dfd934359, type: 2}
+  comboList: {fileID: 0}
   clearCooldown: 0.5
+  phm: {fileID: 1932695379}
 --- !u!114 &2317545380725246086
 MonoBehaviour:
   m_ObjectHideFlags: 0

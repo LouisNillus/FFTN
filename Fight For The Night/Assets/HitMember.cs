@@ -11,10 +11,16 @@ public class HitMember : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag(phm.otherPlayerTag))
+        if(other.CompareTag(phm.otherPlayerTag) && canHit)
         {
             Debug.Log(other.name);
+            canHit = false;
         }
     }
 
+
+
+    public void Enable() => canHit = true;
+    public void Disable() => canHit = false;   
+    
 }
