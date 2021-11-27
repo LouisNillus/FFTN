@@ -1,6 +1,10 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Fight For The Night/Assets/Plugins/Sirenix/Demos/Editor Windows.unitypackage.meta
+guid: 56ab1dd3cf370634d860c95481184859
+=======
 guid: fd2ced95bf263884888fd7c69da79271
 folderAsset: yes
+>>>>>>> origin/Antoine:Fight For The Night/Assets/Shader.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

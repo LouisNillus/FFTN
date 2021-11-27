@@ -10,6 +10,7 @@ public class Combo
     public List<ComboInput> inputs = new List<ComboInput>();
     public string animationName;
     public int damages;
+    public HitMemberName member;
 
     public string CompileToString()
     {
