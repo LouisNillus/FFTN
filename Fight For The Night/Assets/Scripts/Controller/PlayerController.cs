@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
     public Animator animator;
     public InputProfile inputProfile;
 
+    public HP_Bar bar;
+
     private float lastMoveX;
 
     private bool canPressInput;
@@ -42,6 +44,11 @@ public class PlayerController : MonoBehaviour
         canPressInput = true;
     }
 
+    private void Update()
+    {
+        bar.UpdateBar(_hp);
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -49,7 +56,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(inputProfile.heavyAttack) && canPressInput)
         {
             animator.SetTrigger("HeavyHit");
-            rig.localPosition = Vector3.zero;
+            //rig.localPosition = Vector3.zero;
             animator.applyRootMotion = true;
             _isPlayingHitAnimationsWithRootMotion = true;
             StartCoroutine(CooldownBetweenTwoInputs());
@@ -58,7 +65,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(inputProfile.mediumAttack) && canPressInput)
         {
             animator.SetTrigger("NormalHit");
-            rig.localPosition = Vector3.zero;
+            //rig.localPosition = Vector3.zero;
             animator.applyRootMotion = true;
             _isPlayingHitAnimationsWithRootMotion = true;
             StartCoroutine(CooldownBetweenTwoInputs());
@@ -67,7 +74,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(inputProfile.lightAttack) && canPressInput)
         {
             animator.SetTrigger("LightHit");
-            rig.localPosition = Vector3.zero;
+            //rig.localPosition = Vector3.zero;
             animator.applyRootMotion = true;
             _isPlayingHitAnimationsWithRootMotion = true;
             StartCoroutine(CooldownBetweenTwoInputs());
@@ -112,10 +119,15 @@ public class PlayerController : MonoBehaviour
         lastMoveX = moveX;
         #endregion
 
-        if (_isCurrentAnimIsFinished)
+        /*if (_isCurrentAnimIsFinished)
         {
             _isCurrentAnimIsFinished = false;
             rig.localPosition = Vector3.zero;
-        }
+        }*/
+    }
+
+    public void TakeDamages(int value)
+    {
+        _hp -= value;
     }
 }

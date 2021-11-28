@@ -2,10 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using Sirenix.OdinInspector;
 
 public class Buffer : MonoBehaviour
 {
     public List<ComboInput> queue = new List<ComboInput>();
+
+    public ComboInput lowInput;
+    public ComboInput mediumInput;
+    public ComboInput heavyInput;
 
     public ComboList comboList;
 
@@ -14,6 +19,9 @@ public class Buffer : MonoBehaviour
     public Coroutine clearDelay;
 
     public PlayerHitsManager phm;
+
+    [ReadOnly]
+    public ComboInput lastInput;
 
     PlayerController controller;
 
@@ -26,11 +34,16 @@ public class Buffer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (queue.Count > 0) lastInput = queue.Last();
+        else lastInput = null;
+
         if (Input.GetKeyDown(controller.inputProfile.heavyAttack))
         {
             ComboOverloadCheck();
             if (clearDelay != null) StopCoroutine(clearDelay);
-            queue.Add(new ComboInput(controller.inputProfile.heavyAttack, TypeOfInput.Hit, 0.15f));
+
+
+            queue.Add(new ComboInput(heavyInput));
             clearDelay = StartCoroutine(ClearDelay());
             Debug.Log(AdvancedFindCombo()?.comboName);
             EnableLastBufferInputHit();
@@ -39,7 +52,7 @@ public class Buffer : MonoBehaviour
         {
             ComboOverloadCheck();
             if(clearDelay != null) StopCoroutine(clearDelay);
-            queue.Add(new ComboInput(controller.inputProfile.mediumAttack, TypeOfInput.Hit, 0.10f));
+            queue.Add(new ComboInput(mediumInput));
             clearDelay = StartCoroutine(ClearDelay());
             Debug.Log(AdvancedFindCombo()?.comboName);
             EnableLastBufferInputHit();
@@ -48,7 +61,7 @@ public class Buffer : MonoBehaviour
         {
             ComboOverloadCheck();
             if (clearDelay != null) StopCoroutine(clearDelay);
-            queue.Add(new ComboInput(controller.inputProfile.lightAttack, TypeOfInput.Hit, 0.05f));
+            queue.Add(new ComboInput(lowInput));
             clearDelay = StartCoroutine(ClearDelay());
             Debug.Log(AdvancedFindCombo()?.comboName);
             EnableLastBufferInputHit();

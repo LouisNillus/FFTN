@@ -493,6 +493,19 @@ CapsuleCollider:
   m_Height: 0.75
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1873469353783011617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 746261511460899788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c59372dd43b60694e8f104e523f37ab0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  associatedPlayer: {fileID: 2317545380725246086}
 --- !u!135 &1346730155
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -506,6 +519,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.2
   m_Center: {x: 0, y: 0.1, z: 0}
+--- !u!114 &5463274342702862799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168640204304934063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c59372dd43b60694e8f104e523f37ab0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  associatedPlayer: {fileID: 2317545380725246086}
 --- !u!135 &61969682
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -547,6 +573,19 @@ CapsuleCollider:
   m_Height: 0.75
   m_Direction: 1
   m_Center: {x: 0, y: 0.45, z: 0}
+--- !u!114 &1786328209551641953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2475369349785162560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c59372dd43b60694e8f104e523f37ab0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  associatedPlayer: {fileID: 2317545380725246086}
 --- !u!135 &653720790
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -615,6 +654,19 @@ CapsuleCollider:
   m_Height: 0.75
   m_Direction: 1
   m_Center: {x: 0, y: 0.45, z: 0}
+--- !u!114 &7496232026386121239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6698407843735449062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c59372dd43b60694e8f104e523f37ab0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  associatedPlayer: {fileID: 2317545380725246086}
 --- !u!114 &1932695379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -652,9 +704,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   queue: []
-  comboList: {fileID: 0}
+  lowInput:
+    key: 350
+    inputType: 0
+    castTime: 0.1
+    member: 0
+    damages: 0
+  mediumInput:
+    key: 352
+    inputType: 0
+    castTime: 0.2
+    member: 1
+    damages: 0
+  heavyInput:
+    key: 353
+    inputType: 0
+    castTime: 0.3
+    member: 2
+    damages: 0
+  comboList: {fileID: 11400000, guid: f1606c762aaf5264faabbc0dfd934359, type: 2}
   clearCooldown: 0.5
   phm: {fileID: 1932695379}
+  castLock: 0
 --- !u!114 &2317545380725246086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -670,8 +741,10 @@ MonoBehaviour:
   speed: 100
   backwardSpeed: 50
   _hp: 0
+  cooldownBetweenTwoInputs: 0
   self: {fileID: 3227897142743144303}
   selfRigidbody: {fileID: 3227897142743144302}
   rig: {fileID: 8140881895692419104}
   animator: {fileID: 2745529081282566746}
   inputProfile: {fileID: 11400000, guid: 154a5b50840475b46bb23095c0bcfe55, type: 2}
+  bar: {fileID: 0}
