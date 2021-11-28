@@ -27,21 +27,12 @@ public class PlayerController : MonoBehaviour
     private bool canPressInput;
     private bool _isPlayingHitAnimationsWithRootMotion;
     public bool isPlayingHitAnimationsWithRootMotion { set { _isPlayingHitAnimationsWithRootMotion = value; } }
-    private bool _isCurrentAnimIsFinished;
-    public bool isCurrentAnimIsFinished { set { _isCurrentAnimIsFinished = value; } }
-    private bool _isMakingForwardStep;
-    public bool isMakingForwardStep { set { _isMakingForwardStep = value; } }
-    private bool _isStepDone;
-    public bool isStepDone { set { _isStepDone = value; } }
 
     // Start is called before the first frame update
     void Start()
     {
         canPressInput = true;
         _isPlayingHitAnimationsWithRootMotion = false;
-        _isCurrentAnimIsFinished = false;
-        _isMakingForwardStep = false;
-        _isStepDone = false;
     }
 
     IEnumerator CooldownBetweenTwoInputs()
@@ -99,49 +90,33 @@ public class PlayerController : MonoBehaviour
         }
 
         #region AnimationMovements
-        if (!_isStepDone && !_isMakingForwardStep && moveX > 0.0f)
+        if (moveX != 0.0f)
         {
-            selfRigidbody.velocity = Vector3.right * 1.0f * speed * Time.deltaTime;
-            _isMakingForwardStep = true;
-            animator.SetFloat("Speed", selfRigidbody.velocity.x);
-        }
-        if (!_isMakingForwardStep)
-        {
-            if (moveX != 0.0f)
+            if (moveX < 0.0f)
             {
-                if (moveX < 0.0f)
-                {
-                    // Apply movement
-                    selfRigidbody.velocity = Vector3.right * moveX * backwardSpeed * Time.deltaTime;
-                }
-                else if (moveX > 0.0f)
-                {
-                    // Apply movement
-                    selfRigidbody.velocity = Vector3.right * moveX * speed * Time.deltaTime;
-                }
-
-                // Update Anim
-                animator.SetFloat("Speed", selfRigidbody.velocity.x, 0.02f, Time.deltaTime);
+                // Apply movement
+                selfRigidbody.velocity = Vector3.right * moveX * backwardSpeed * Time.deltaTime;
             }
-            else
+            else if (moveX > 0.0f)
             {
-                _isStepDone = false;
-                selfRigidbody.velocity = Vector3.zero;
-                if (lastMoveX == moveX)
-                {
-                    animator.SetFloat("Speed", moveX, 0.02f, Time.deltaTime);
-                }
+                // Apply movement
+                selfRigidbody.velocity = Vector3.right * moveX * speed * Time.deltaTime;
+            }
+
+            // Update Anim
+            animator.SetFloat("Speed", selfRigidbody.velocity.x, 0.02f, Time.deltaTime);
+        }
+        else
+        {
+            selfRigidbody.velocity = Vector3.zero;
+            if (lastMoveX == moveX)
+            {
+                animator.SetFloat("Speed", moveX, 0.02f, Time.deltaTime);
             }
         }
 
         _lastMoveX = moveX;
         #endregion
-
-        /*if (_isCurrentAnimIsFinished)
-        {
-            _isCurrentAnimIsFinished = false;
-            rig.localPosition = Vector3.zero;
-        }*/
     }
 
     public void TakeDamages(int value)
