@@ -42,16 +42,16 @@ public class Buffer : MonoBehaviour
     {
         ComboOverloadCheck();
 
+        //if (comboInput.animationName == "Uppercut") Debug.Break();
 
         if (clearDelay != null) StopCoroutine(clearDelay);
-
-        Debug.Log("Hit");
 
         ComboInput ci = new ComboInput(comboInput);
         ci.animationTime = animationTime;
         queue.Add(ci);
 
-        clearDelay = StartCoroutine(ClearDelay(ci));
+        if(ci.animationName == "")
+            clearDelay = StartCoroutine(ClearDelay(ci));
 
         //Debug.Log(AdvancedFindCombo()?.comboName);
         EnableLastBufferInputHit();

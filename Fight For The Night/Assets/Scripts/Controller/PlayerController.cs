@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class PlayerController : MonoBehaviour
 {
@@ -27,8 +28,6 @@ public class PlayerController : MonoBehaviour
 
     public bool isPlayingFinalCombo;
 
-    private int indexBuffer;
-
     private bool _isPlayingHitAnimationsWithRootMotion;
     public bool isPlayingHitAnimationsWithRootMotion { set { _isPlayingHitAnimationsWithRootMotion = value; } }
 
@@ -37,7 +36,6 @@ public class PlayerController : MonoBehaviour
     {
         GetClipsLength();
         _isPlayingHitAnimationsWithRootMotion = false;
-        indexBuffer = 0;
     }
 
     private void Update()
@@ -56,7 +54,7 @@ public class PlayerController : MonoBehaviour
                 {
                     if (validCombo.isFinal)
                     {
-                        inputBuffer.AddBuffer(validCombo.finalInput, GetClipLengthFromName(validCombo.animationName));
+                        inputBuffer.AddBuffer(validCombo.inputs.Last(), GetClipLengthFromName(validCombo.inputs.Last().animationName));
                         isPlayingFinalCombo = true;
                     }
                     else
@@ -79,7 +77,7 @@ public class PlayerController : MonoBehaviour
                 {
                     if (validCombo.isFinal)
                     {
-                        inputBuffer.AddBuffer(validCombo.finalInput, GetClipLengthFromName(validCombo.animationName));
+                        inputBuffer.AddBuffer(validCombo.inputs.Last(), GetClipLengthFromName(validCombo.inputs.Last().animationName));
                         isPlayingFinalCombo = true;
                     }
                     else
@@ -102,7 +100,7 @@ public class PlayerController : MonoBehaviour
                 {
                     if (validCombo.isFinal)
                     {
-                        inputBuffer.AddBuffer(validCombo.finalInput, GetClipLengthFromName(validCombo.animationName));
+                        inputBuffer.AddBuffer(validCombo.inputs.Last(), GetClipLengthFromName(validCombo.inputs.Last().animationName));
                         isPlayingFinalCombo = true;
                     }
                     else
@@ -172,9 +170,11 @@ public class PlayerController : MonoBehaviour
 
     public void ReadBuffer()
     {
-        foreach(ComboInput ci in inputBuffer.queue)
+        for (int i = 0; i < inputBuffer.queue.Count; i++)
         {
-            if(!ci.hasBeenPlayed)
+            ComboInput ci = inputBuffer.queue[i];
+            
+            if (!ci.hasBeenPlayed)
             {
                 if (ci.animationName != "")
                 {
@@ -191,11 +191,6 @@ public class PlayerController : MonoBehaviour
     public void TakeDamages(int value)
     {
         _hp -= value;
-    }
-
-    void IsPlayingAnimation()
-    {
-        _isPlayingHitAnimationsWithRootMotion = true;
     }
 
     float lightDuration, mediumDuration, heavyDuration;

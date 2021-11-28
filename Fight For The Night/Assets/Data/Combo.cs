@@ -12,9 +12,7 @@ public class Combo
     public string animationName;
     public int damages;
     public bool isFinal;
-    [ShowIf("isFinal")]
-    public ComboInput finalInput;
-    public HitMemberName member;
+
 
     public string CompileToString()
     {

@@ -9,12 +9,13 @@ public class ComboInput
     public KeyCode key;
     public HitType hitType;
     public float comboOffsetTime;
+    [HideInInspector]
     public float animationTime;
     public HitMemberName member;
     public int damages;
     public bool hasBeenPlayed;
 
-    public string animationName;
+    public string animationName = "";
 
     public ComboInput(ComboInput comboInput)
     {
@@ -24,6 +25,7 @@ public class ComboInput
         animationTime = comboInput.animationTime;
         member = comboInput.member;
         damages = comboInput.damages;
+        animationName = comboInput.animationName;
     }
 
     public float CastTime()

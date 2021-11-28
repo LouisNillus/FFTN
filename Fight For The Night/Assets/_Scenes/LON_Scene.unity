@@ -247,18 +247,6 @@ PrefabInstance:
       propertyPath: leftHand
       value: 
       objectReference: {fileID: 653720791}
-    - target: {fileID: 2053292047715530116, guid: 73ad5d0c34206e64dbb77e2bbcb88e71, type: 3}
-      propertyPath: lowInput.damages
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2053292047715530116, guid: 73ad5d0c34206e64dbb77e2bbcb88e71, type: 3}
-      propertyPath: heavyInput.damages
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2053292047715530116, guid: 73ad5d0c34206e64dbb77e2bbcb88e71, type: 3}
-      propertyPath: mediumInput.damages
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 2317545380725246086, guid: 73ad5d0c34206e64dbb77e2bbcb88e71, type: 3}
       propertyPath: _hp
       value: 200

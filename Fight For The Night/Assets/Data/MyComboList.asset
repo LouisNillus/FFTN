@@ -16,103 +16,53 @@ MonoBehaviour:
   mid: 352
   high: 353
   combos:
-  - comboName: Hello Combo
+  - comboName: UpperBase
     inputs:
     - key: 353
-      inputType: 1
-      castTime: 0
-      member: 0
-      damages: 0
+      hitType: 2
+      comboOffsetTime: 0
+      animationTime: 0
+      member: 2
+      damages: 8
+      hasBeenPlayed: 0
+      animationName: 
     - key: 352
-      inputType: 1
-      castTime: 0
-      member: 0
-      damages: 0
-    - key: 352
-      inputType: 1
-      castTime: 0
-      member: 0
-      damages: 0
+      hitType: 1
+      comboOffsetTime: 0
+      animationTime: 0
+      member: 1
+      damages: 4
+      hasBeenPlayed: 0
+      animationName: 
+    animationName: 
+    damages: 0
+    isFinal: 0
+  - comboName: Uppercut
+    inputs:
     - key: 353
-      inputType: 1
-      castTime: 0
-      member: 0
-      damages: 0
-    animationName: 
-    damages: 0
-    member: 0
-  - comboName: Le Classico
-    inputs:
-    - key: 350
-      inputType: 0
-      castTime: 0
-      member: 0
-      damages: 0
-    - key: 350
-      inputType: 0
-      castTime: 0
-      member: 0
-      damages: 0
+      hitType: 2
+      comboOffsetTime: 0
+      animationTime: 0
+      member: 2
+      damages: 8
+      hasBeenPlayed: 0
+      animationName: 
     - key: 352
-      inputType: 0
-      castTime: 0
+      hitType: 1
+      comboOffsetTime: 0
+      animationTime: 0
+      member: 1
+      damages: 4
+      hasBeenPlayed: 0
+      animationName: 
+    - key: 350
+      hitType: 0
+      comboOffsetTime: 0
+      animationTime: 0
       member: 0
-      damages: 0
-    - key: 352
-      inputType: 0
-      castTime: 0
-      member: 0
-      damages: 0
+      damages: 15
+      hasBeenPlayed: 0
+      animationName: Uppercut
     animationName: 
     damages: 0
-    member: 0
-  - comboName: 5 O' 5
-    inputs:
-    - key: 103
-      inputType: 0
-      castTime: 0
-      member: 0
-      damages: 0
-    - key: 103
-      inputType: 0
-      castTime: 0
-      member: 0
-      damages: 0
-    - key: 103
-      inputType: 0
-      castTime: 0
-      member: 0
-      damages: 0
-    - key: 100
-      inputType: 0
-      castTime: 0
-      member: 0
-      damages: 0
-    - key: 100
-      inputType: 0
-      castTime: 0
-      member: 0
-      damages: 0
-    animationName: 
-    damages: 0
-    member: 0
-  - comboName: Cheval De Troie
-    inputs:
-    - key: 100
-      inputType: 0
-      castTime: 0
-      member: 0
-      damages: 0
-    - key: 103
-      inputType: 0
-      castTime: 0
-      member: 0
-      damages: 0
-    - key: 100
-      inputType: 0
-      castTime: 0
-      member: 0
-      damages: 0
-    animationName: 
-    damages: 0
-    member: 0
+    isFinal: 1
