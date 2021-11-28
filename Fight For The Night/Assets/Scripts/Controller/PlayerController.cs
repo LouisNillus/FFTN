@@ -55,7 +55,6 @@ public class PlayerController : MonoBehaviour
                     if (validCombo.isFinal)
                     {
                         inputBuffer.AddBuffer(validCombo.inputs.Last(), GetClipLengthFromName(validCombo.inputs.Last().animationName));
-                        isPlayingFinalCombo = true;
                     }
                     else
                         inputBuffer.AddBuffer(inputBuffer.heavyInput, heavyDuration);
@@ -78,7 +77,6 @@ public class PlayerController : MonoBehaviour
                     if (validCombo.isFinal)
                     {
                         inputBuffer.AddBuffer(validCombo.inputs.Last(), GetClipLengthFromName(validCombo.inputs.Last().animationName));
-                        isPlayingFinalCombo = true;
                     }
                     else
                         inputBuffer.AddBuffer(inputBuffer.mediumInput, mediumDuration);
@@ -101,7 +99,6 @@ public class PlayerController : MonoBehaviour
                     if (validCombo.isFinal)
                     {
                         inputBuffer.AddBuffer(validCombo.inputs.Last(), GetClipLengthFromName(validCombo.inputs.Last().animationName));
-                        isPlayingFinalCombo = true;
                     }
                     else
                         inputBuffer.AddBuffer(inputBuffer.lowInput, lightDuration);
@@ -178,6 +175,7 @@ public class PlayerController : MonoBehaviour
             {
                 if (ci.animationName != "")
                 {
+                    isPlayingFinalCombo = true;
                     animator.SetTrigger(ci.animationName);
                     inputBuffer.queue.Clear();
                 }
