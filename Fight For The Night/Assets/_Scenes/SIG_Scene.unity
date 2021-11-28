@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1280.9941, g: 1552.168, b: 2086.3262, a: 1}
+  m_IndirectSpecularColor: {r: 1185.0791, g: 1418.9277, b: 1869.7637, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -340,6 +340,17 @@ PrefabInstance:
       objectReference: {fileID: 1078020245}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f358f002aaecdf84e97f66e0120a7cf8, type: 3}
+--- !u!114 &606199505 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1244098248615501484, guid: f358f002aaecdf84e97f66e0120a7cf8, type: 3}
+  m_PrefabInstance: {fileID: 606199504}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e603caf01db7f4dbfc7993ec697ca6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1078020243
 GameObject:
   m_ObjectHideFlags: 0
@@ -772,6 +783,14 @@ PrefabInstance:
       value: Player1
       objectReference: {fileID: 0}
     - target: {fileID: 2317545380725246086, guid: 73ad5d0c34206e64dbb77e2bbcb88e71, type: 3}
+      propertyPath: bar
+      value: 
+      objectReference: {fileID: 606199505}
+    - target: {fileID: 2317545380725246086, guid: 73ad5d0c34206e64dbb77e2bbcb88e71, type: 3}
+      propertyPath: inputBuffer
+      value: 
+      objectReference: {fileID: 1701421965}
+    - target: {fileID: 2317545380725246086, guid: 73ad5d0c34206e64dbb77e2bbcb88e71, type: 3}
       propertyPath: inputProfile
       value: 
       objectReference: {fileID: 11400000, guid: 1a92080a190d5e449bc0c82e8fc607fe, type: 2}
@@ -825,10 +844,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3227897142743144304, guid: 73ad5d0c34206e64dbb77e2bbcb88e71, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73ad5d0c34206e64dbb77e2bbcb88e71, type: 3}
+--- !u!114 &1701421965 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2053292047715530116, guid: 73ad5d0c34206e64dbb77e2bbcb88e71, type: 3}
+  m_PrefabInstance: {fileID: 1701421964}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9eccb0fc2c049641823cad05bb3e85b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2031027190
 GameObject:
   m_ObjectHideFlags: 0
@@ -912,6 +942,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2053292047715530116, guid: 73ad5d0c34206e64dbb77e2bbcb88e71, type: 3}
+      propertyPath: lowInput.comboOffsetTime
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2053292047715530116, guid: 73ad5d0c34206e64dbb77e2bbcb88e71, type: 3}
+      propertyPath: heavyInput.comboOffsetTime
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2053292047715530116, guid: 73ad5d0c34206e64dbb77e2bbcb88e71, type: 3}
+      propertyPath: mediumInput.comboOffsetTime
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2317545380725246086, guid: 73ad5d0c34206e64dbb77e2bbcb88e71, type: 3}
       propertyPath: bar
       value: 
