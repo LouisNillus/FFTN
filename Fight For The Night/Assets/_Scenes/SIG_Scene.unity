@@ -123,11 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &368919183 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8913160633161587354, guid: 73ad5d0c34206e64dbb77e2bbcb88e71, type: 3}
-  m_PrefabInstance: {fileID: 3227897142993968542}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1078020243
 GameObject:
   m_ObjectHideFlags: 0
@@ -342,24 +337,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8140881895692419104, guid: 73ad5d0c34206e64dbb77e2bbcb88e71, type: 3}
   m_PrefabInstance: {fileID: 3227897142993968542}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1262926076
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 368919183}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92e603caf01db7f4dbfc7993ec697ca6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  armorBar: {fileID: 0}
-  lifeBar: {fileID: 0}
-  borderBar: {fileID: 0}
-  fixedBorder: 0
-  maxHP: 0
-  hpTest: 0
 --- !u!1 &1359055004
 GameObject:
   m_ObjectHideFlags: 0
@@ -810,7 +787,7 @@ PrefabInstance:
     - target: {fileID: 2317545380725246086, guid: 73ad5d0c34206e64dbb77e2bbcb88e71, type: 3}
       propertyPath: bar
       value: 
-      objectReference: {fileID: 1262926076}
+      objectReference: {fileID: 3428513778950185245, guid: 1d35a36d505420f4b95aeca7f53b8d0d, type: 3}
     - target: {fileID: 2317545380725246086, guid: 73ad5d0c34206e64dbb77e2bbcb88e71, type: 3}
       propertyPath: self
       value: 

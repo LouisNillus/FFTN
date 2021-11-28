@@ -36,36 +36,16 @@ public class Buffer : MonoBehaviour
     {
         if (queue.Count > 0) lastInput = queue.Last();
         else lastInput = null;
+    }
 
-        if (Input.GetKeyDown(controller.inputProfile.heavyAttack))
-        {
-            ComboOverloadCheck();
-            if (clearDelay != null) StopCoroutine(clearDelay);
-
-
-            queue.Add(new ComboInput(heavyInput));
-            clearDelay = StartCoroutine(ClearDelay());
-            Debug.Log(AdvancedFindCombo()?.comboName);
-            EnableLastBufferInputHit();
-        }
-        if (Input.GetKeyDown(controller.inputProfile.mediumAttack))
-        {
-            ComboOverloadCheck();
-            if(clearDelay != null) StopCoroutine(clearDelay);
-            queue.Add(new ComboInput(mediumInput));
-            clearDelay = StartCoroutine(ClearDelay());
-            Debug.Log(AdvancedFindCombo()?.comboName);
-            EnableLastBufferInputHit();
-        }
-        if (Input.GetKeyDown(controller.inputProfile.lightAttack))
-        {
-            ComboOverloadCheck();
-            if (clearDelay != null) StopCoroutine(clearDelay);
-            queue.Add(new ComboInput(lowInput));
-            clearDelay = StartCoroutine(ClearDelay());
-            Debug.Log(AdvancedFindCombo()?.comboName);
-            EnableLastBufferInputHit();
-        }
+    public void AddBuffer(ComboInput comboInput)
+    {
+        ComboOverloadCheck();
+        if (clearDelay != null) StopCoroutine(clearDelay);
+        queue.Add(new ComboInput(comboInput));
+        clearDelay = StartCoroutine(ClearDelay());
+        Debug.Log(AdvancedFindCombo()?.comboName);
+        EnableLastBufferInputHit();
     }
 
     public IEnumerator ClearDelay()

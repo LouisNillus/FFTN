@@ -18,28 +18,23 @@ public class PlayerController : MonoBehaviour
     public Transform rig;
     public Animator animator;
     public InputProfile inputProfile;
+    public Buffer inputBuffer;
 
     private float _lastMoveX;
     public float lastMoveX { get { return _lastMoveX; } }
 
     public HP_Bar bar;
 
-    private bool canPressInput;
+    private int indexBuffer;
+
     private bool _isPlayingHitAnimationsWithRootMotion;
     public bool isPlayingHitAnimationsWithRootMotion { set { _isPlayingHitAnimationsWithRootMotion = value; } }
 
     // Start is called before the first frame update
     void Start()
     {
-        canPressInput = true;
         _isPlayingHitAnimationsWithRootMotion = false;
-    }
-
-    IEnumerator CooldownBetweenTwoInputs()
-    {
-        canPressInput = false;
-        yield return new WaitForSeconds(cooldownBetweenTwoInputs);
-        canPressInput = true;
+        indexBuffer = 0;
     }
 
     private void Update()
@@ -51,33 +46,48 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         #region AnimationHits
-        if (Input.GetKey(inputProfile.heavyAttack) && canPressInput)
+        if (Input.GetKey(inputProfile.heavyAttack))
         {
+            inputBuffer.AddBuffer(inputBuffer.heavyInput);
             animator.SetTrigger("HeavyHit");
-            //rig.localPosition = Vector3.zero;
             animator.applyRootMotion = true;
             _isPlayingHitAnimationsWithRootMotion = true;
-            StartCoroutine(CooldownBetweenTwoInputs());
         }
 
-        if (Input.GetKey(inputProfile.mediumAttack) && canPressInput)
+        if (Input.GetKey(inputProfile.mediumAttack))
         {
+            inputBuffer.AddBuffer(inputBuffer.mediumInput);
             animator.SetTrigger("NormalHit");
-            //rig.localPosition = Vector3.zero;
             animator.applyRootMotion = true;
             _isPlayingHitAnimationsWithRootMotion = true;
-            StartCoroutine(CooldownBetweenTwoInputs());
         }
 
-        if (Input.GetKey(inputProfile.lightAttack) && canPressInput)
+        if (Input.GetKey(inputProfile.lightAttack))
         {
+            inputBuffer.AddBuffer(inputBuffer.lowInput);
             animator.SetTrigger("LightHit");
-            //rig.localPosition = Vector3.zero;
             animator.applyRootMotion = true;
             _isPlayingHitAnimationsWithRootMotion = true;
-            StartCoroutine(CooldownBetweenTwoInputs());
         }
         #endregion
+
+        if (!_isPlayingHitAnimationsWithRootMotion && inputBuffer.queue.Count != 0)
+        {
+            KeyCode key = inputBuffer.queue[indexBuffer].key;
+
+            switch (key)
+            {
+                case KeyCode k when k == inputProfile.lightAttack:
+                    animator.SetTrigger("LightHit");
+                    break;
+                case KeyCode k when k == inputProfile.mediumAttack:
+                    break;
+                case KeyCode k when k == inputProfile.heavyAttack:
+                    break;
+                default:
+                    break;
+            }
+        }
 
         // Get Movement
         float moveX = Input.GetAxis(inputProfile.horizontalAxis);
