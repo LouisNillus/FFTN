@@ -22,7 +22,7 @@ public class HP_Bar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UpdateBar(hpTest);
+        //UpdateBar(hpTest);
     }
 
     public void UpdateBar(int hp)

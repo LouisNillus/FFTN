@@ -22,6 +22,8 @@ public class PlayerController : MonoBehaviour
     private float _lastMoveX;
     public float lastMoveX { get { return _lastMoveX; } }
 
+    public HP_Bar bar;
+
     private bool canPressInput;
     private bool _isPlayingHitAnimationsWithRootMotion;
     public bool isPlayingHitAnimationsWithRootMotion { set { _isPlayingHitAnimationsWithRootMotion = value; } }
@@ -49,6 +51,11 @@ public class PlayerController : MonoBehaviour
         canPressInput = true;
     }
 
+    private void Update()
+    {
+        bar.UpdateBar(_hp);
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -56,7 +63,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(inputProfile.heavyAttack) && canPressInput)
         {
             animator.SetTrigger("HeavyHit");
-            rig.localPosition = Vector3.zero;
+            //rig.localPosition = Vector3.zero;
             animator.applyRootMotion = true;
             _isPlayingHitAnimationsWithRootMotion = true;
             StartCoroutine(CooldownBetweenTwoInputs());
@@ -65,7 +72,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(inputProfile.mediumAttack) && canPressInput)
         {
             animator.SetTrigger("NormalHit");
-            rig.localPosition = Vector3.zero;
+            //rig.localPosition = Vector3.zero;
             animator.applyRootMotion = true;
             _isPlayingHitAnimationsWithRootMotion = true;
             StartCoroutine(CooldownBetweenTwoInputs());
@@ -74,7 +81,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(inputProfile.lightAttack) && canPressInput)
         {
             animator.SetTrigger("LightHit");
-            rig.localPosition = Vector3.zero;
+            //rig.localPosition = Vector3.zero;
             animator.applyRootMotion = true;
             _isPlayingHitAnimationsWithRootMotion = true;
             StartCoroutine(CooldownBetweenTwoInputs());
@@ -130,10 +137,15 @@ public class PlayerController : MonoBehaviour
         _lastMoveX = moveX;
         #endregion
 
-        if (_isCurrentAnimIsFinished)
+        /*if (_isCurrentAnimIsFinished)
         {
             _isCurrentAnimIsFinished = false;
             rig.localPosition = Vector3.zero;
-        }
+        }*/
+    }
+
+    public void TakeDamages(int value)
+    {
+        _hp -= value;
     }
 }
