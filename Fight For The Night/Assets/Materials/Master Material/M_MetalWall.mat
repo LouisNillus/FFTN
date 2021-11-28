@@ -27,7 +27,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _AO:
-        m_Texture: {fileID: 2800000, guid: 6d0ca331f283bdf4ba33a234cadb7148, type: 3}
+        m_Texture: {fileID: 2800000, guid: 43c027923029f64499d2f38570aea61f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Albedo:
@@ -146,7 +146,7 @@ Material:
     m_Floats:
     - _AORemapMax: 1
     - _AORemapMin: 0
-    - _AO_Power: 0
+    - _AO_Power: 2.6
     - _ATDistance: 1
     - _AddPrecomputedVelocity: 0
     - _AlbedoAffectEmissive: 0
