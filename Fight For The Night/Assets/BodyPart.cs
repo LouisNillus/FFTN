@@ -8,6 +8,6 @@ public class BodyPart : MonoBehaviour
     public string animationName;
     public void PlayAnimation()
     {
-        associatedPlayer.animator.SetTrigger(animationName);
+        //associatedPlayer.animator.SetTrigger(animationName);
     }
 }

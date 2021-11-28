@@ -16,13 +16,16 @@ public class HitMember : MonoBehaviour
         {
             if(phm.buffer.currentInput != null)
             {
+                Debug.Log(other.GetComponent<BodyPart>().associatedPlayer);
+                Debug.Log(phm.buffer.currentInput.damages);
+                Debug.Log(phm);
                 other.GetComponent<BodyPart>().associatedPlayer.TakeDamages(phm.buffer.currentInput.damages);
                 other.GetComponent<BodyPart>().PlayAnimation();
 
                 switch (phm.buffer.currentInput.hitType)
                 {
                     case HitType.Light:
-                        Instantiate(FightManager.instance.light, this.transform.position, Quaternion.identity);
+                        Instantiate(FightManager.instance.low, this.transform.position, Quaternion.identity);
                         break;
                     case HitType.Medium:
                         Instantiate(FightManager.instance.medium, this.transform.position, Quaternion.identity);
