@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HitAnimationBehaviour : StateMachineBehaviour
+public class FinalComboHitBehaviour : StateMachineBehaviour
 {
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     //override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -13,13 +13,7 @@ public class HitAnimationBehaviour : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     //override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     //{
-    //    PlayerController player = animator.GetComponent<PlayerController>();
-    //    //Debug.Log(stateInfo.normalizedTime);
-    //    if (stateInfo.normalizedTime > 0.9f)
-    //    {
-    //        player.isPlayingHitAnimationsWithRootMotion = false;
-    //        animator.ForceStateNormalizedTime(0);
-    //    }
+    //    
     //}
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
@@ -27,6 +21,7 @@ public class HitAnimationBehaviour : StateMachineBehaviour
     {
         PlayerController player = animator.GetComponent<PlayerController>();
         player.isPlayingHitAnimationsWithRootMotion = false;
+        player.isPlayingFinalCombo = false;
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

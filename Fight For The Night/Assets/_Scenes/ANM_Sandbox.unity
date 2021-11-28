@@ -60909,7 +60909,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1280882883}
   m_LocalRotation: {x: 0.08900163, y: -0, z: -0, w: 0.9960315}
-  m_LocalPosition: {x: 9, y: 2.04, z: -2.53}
+  m_LocalPosition: {x: -0.24, y: 2.04, z: -2.53}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -90693,7 +90693,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2007929783}
   - component: {fileID: 2007929780}
-  - component: {fileID: 2007929782}
   - component: {fileID: 2007929781}
   m_Layer: 0
   m_Name: UI Camera
@@ -90869,14 +90868,6 @@ MonoBehaviour:
       enableFptlForForwardOpaque: 0
       enableBigTilePrepass: 0
       isFptlEnabled: 0
---- !u!81 &2007929782
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2007929779}
-  m_Enabled: 1
 --- !u!4 &2007929783
 Transform:
   m_ObjectHideFlags: 0
