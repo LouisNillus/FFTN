@@ -6,11 +6,11 @@ using TMPro;
 
 public class MainMenu : MonoBehaviour
 {
-    public Color soundOn;
-    public Color soundOff;
+    public Sprite soundOn;
+    public Sprite soundOff;
 
-    public Color qualityLow;
-    public Color qualityhigh;
+    public Sprite qualityLow;
+    public Sprite qualityHigh;
 
     public Image muteButton;
     public Image qualityButton;
@@ -36,8 +36,7 @@ public class MainMenu : MonoBehaviour
         muted = !muted;
 
         AudioManager.instance.audioSource.volume = muted ? 0f : 1f;
-        muteButton.GetComponentInChildren<TextMeshProUGUI>().text = muted ? "OFF" : "ON";
-        muteButton.color = muted ? soundOff : soundOn;
+        muteButton.sprite = muted ? soundOff : soundOn;
     }
 
     public void GraphicsSwap()
@@ -45,7 +44,6 @@ public class MainMenu : MonoBehaviour
         QualitySettings.SetQualityLevel(QualitySettings.GetQualityLevel() == 0 ? 1 : 0);
 
         int currentQuality = QualitySettings.GetQualityLevel();
-        qualityButton.color = currentQuality == 0 ? qualityhigh : qualityLow;
-        qualityButton.GetComponentInChildren<TextMeshProUGUI>().text = currentQuality == 0 ? "HIGH" : "LOW";
+        qualityButton.sprite = currentQuality == 0 ? qualityHigh : qualityLow;
     }
 }

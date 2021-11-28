@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1483.1729, g: 1837.5293, b: 2432.0957, a: 1}
+  m_IndirectSpecularColor: {r: 0.17980957, g: 0.17980957, b: 0.17980957, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3051,6 +3051,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 285edabbbf1fcdd409e414529896a4cd, type: 2}
+    - target: {fileID: 3227897142743144302, guid: 73ad5d0c34206e64dbb77e2bbcb88e71, type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3227897142743144303, guid: 73ad5d0c34206e64dbb77e2bbcb88e71, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -3389,6 +3393,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rules: {fileID: 11400000, guid: 6f1599bb706c7e54585a6466b0c3679c, type: 2}
   timerText: {fileID: 1875631542}
+  light: {fileID: 1258192386376569472, guid: 929d84bbf1c3ea748aaf1c60a7018147, type: 3}
+  medium: {fileID: 492981062065323306, guid: 4202c2560d8d79b42bf7160fb49af549, type: 3}
+  heavy: {fileID: 2692997620578038703, guid: d5709cdb0e1a64b4eb3ae67a58b81721, type: 3}
+  combo: {fileID: 6695858431711959387, guid: 3af5dce768877274a9a76318459efc77, type: 3}
 --- !u!4 &587255734
 Transform:
   m_ObjectHideFlags: 0
@@ -9961,6 +9969,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3227897142743144302, guid: 922c9eca1411a0549a3330247874cca9, type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3227897142743144303, guid: 922c9eca1411a0549a3330247874cca9, type: 3}
       propertyPath: m_RootOrder
       value: 5

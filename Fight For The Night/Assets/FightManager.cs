@@ -14,6 +14,14 @@ public class FightManager : MonoBehaviour
     float timer = 0f;
     public TextMeshProUGUI timerText;
 
+
+
+
+    public GameObject light;
+    public GameObject medium;
+    public GameObject heavy;
+    public GameObject combo;
+
     private void Awake()
     {
         instance = this;

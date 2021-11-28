@@ -14,10 +14,24 @@ public class HitMember : MonoBehaviour
     {
         if(other.CompareTag(phm.otherPlayerTag) && canHit)
         {
-            if(phm.buffer.lastInput != null)
+            if(phm.buffer.currentInput != null)
             {
-                other.GetComponent<BodyPart>().associatedPlayer.TakeDamages(phm.buffer.lastInput.damages);
+                other.GetComponent<BodyPart>().associatedPlayer.TakeDamages(phm.buffer.currentInput.damages);
                 other.GetComponent<BodyPart>().PlayAnimation();
+
+                switch (phm.buffer.currentInput.hitType)
+                {
+                    case HitType.Light:
+                        Instantiate(FightManager.instance.light, this.transform.position, Quaternion.identity);
+                        break;
+                    case HitType.Medium:
+                        Instantiate(FightManager.instance.medium, this.transform.position, Quaternion.identity);
+                        break;
+                    case HitType.Heavy:
+                        Instantiate(FightManager.instance.heavy, this.transform.position, Quaternion.identity);
+                        break;
+                }
+
                 Debug.Log(other.name);
                 canHit = false;
             }
@@ -27,6 +41,6 @@ public class HitMember : MonoBehaviour
 
 
     public void Enable() => canHit = true;
-    public void Disable() => canHit = false;   
-    
+    public void Disable() => canHit = false;
+
 }
