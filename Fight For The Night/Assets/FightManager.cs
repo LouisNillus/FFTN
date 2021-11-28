@@ -17,7 +17,7 @@ public class FightManager : MonoBehaviour
 
 
 
-    public GameObject light;
+    public GameObject low;
     public GameObject medium;
     public GameObject heavy;
     public GameObject combo;
