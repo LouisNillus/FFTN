@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IsAnimationFinished : StateMachineBehaviour
+public class HitAnimationBehaviour : StateMachineBehaviour
 {
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     //override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -17,7 +17,7 @@ public class IsAnimationFinished : StateMachineBehaviour
     //}
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
-    override public void OnStateExit(Animator animator, AnimatorStateInfo stateinfo, int layerindex)
+    override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         PlayerController player = animator.GetComponent<PlayerController>();
         player.isPlayingHitAnimationsWithRootMotion = false;
@@ -25,11 +25,10 @@ public class IsAnimationFinished : StateMachineBehaviour
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
-    /*override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-        PlayerController player = animator.GetComponent<PlayerController>();
-        //player.rig.localPosition = new Vector3(0.0f, player.rig.localPosition.y, 0.0f);
-    }*/
+    //override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    //{
+    //    // Implement code that processes and affects root motion
+    //}
 
     // OnStateIK is called right after Animator.OnAnimatorIK()
     //override public void OnStateIK(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
