@@ -153,13 +153,19 @@ public class PlayerController : MonoBehaviour
                 if (moveX < 0.0f)
                 {
                     // Apply movement
-                    selfRigidbody.velocity = Vector3.right * moveX * backwardSpeed * Time.deltaTime;
-                }
+                    if (CompareTag("Player1"))
+                        selfRigidbody.velocity = Vector3.right * moveX * backwardSpeed * Time.deltaTime;
+                    else
+                        selfRigidbody.velocity = Vector3.right * moveX * speed * Time.deltaTime;
+            }
                 else if (moveX > 0.0f)
                 {
                     // Apply movement
-                    selfRigidbody.velocity = Vector3.right * moveX * speed * Time.deltaTime;
-                }
+                    if (CompareTag("Player1"))
+                        selfRigidbody.velocity = Vector3.right * moveX * speed * Time.deltaTime;
+                    else
+                        selfRigidbody.velocity = Vector3.right * moveX * backwardSpeed * Time.deltaTime;
+            }
 
                 // Update Anim
                 animator.SetFloat("Speed", selfRigidbody.velocity.x, 0.02f, Time.deltaTime);

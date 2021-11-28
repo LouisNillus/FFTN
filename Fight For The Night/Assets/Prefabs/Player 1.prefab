@@ -1639,7 +1639,7 @@ Animator:
   m_GameObject: {fileID: 5736475603886482621}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 41b2622b92fdd0f44a42f38d9ccc853b, type: 3}
-  m_Controller: {fileID: 9100000, guid: 0b074d480e291614f89145a1677c6eb0, type: 2}
+  m_Controller: {fileID: 9100000, guid: cf2fa8b8aebac094e89b76bfaa335df5, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -1665,14 +1665,18 @@ MonoBehaviour:
   backwardSpeed: 50
   _hp: 200
   cooldownBetweenTwoInputs: 0
-  self: {fileID: 0}
-  selfRigidbody: {fileID: 0}
+  self: {fileID: 3227897142743144303}
+  selfRigidbody: {fileID: 3227897142743144302}
   rig: {fileID: 4960678188975488519}
   animator: {fileID: 1312784255630484605}
   inputProfile: {fileID: 11400000, guid: 1a92080a190d5e449bc0c82e8fc607fe, type: 2}
   inputBuffer: {fileID: 4230456351790365792}
   bar: {fileID: 0}
   isPlayingFinalCombo: 0
+  canMove: 1
+  lightDuration: 0
+  mediumDuration: 0
+  heavyDuration: 0
 --- !u!114 &4230456351790365792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1687,25 +1691,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   queue: []
   lowInput:
-    key: 350
+    key: 370
     hitType: 0
     comboOffsetTime: 0
     animationTime: 0
-    member: 0
+    member: 1
     damages: 2
     hasBeenPlayed: 0
     animationName: 
   mediumInput:
-    key: 352
+    key: 372
     hitType: 1
     comboOffsetTime: 0
     animationTime: 0
-    member: 1
+    member: 0
     damages: 4
     hasBeenPlayed: 0
     animationName: 
   heavyInput:
-    key: 353
+    key: 373
     hitType: 2
     comboOffsetTime: 0
     animationTime: 0
@@ -1717,6 +1721,15 @@ MonoBehaviour:
   clearCooldown: 0.5
   phm: {fileID: 0}
   lastInput:
+    key: 0
+    hitType: 0
+    comboOffsetTime: 0
+    animationTime: 0
+    member: 0
+    damages: 0
+    hasBeenPlayed: 0
+    animationName: 
+  currentInput:
     key: 0
     hitType: 0
     comboOffsetTime: 0
