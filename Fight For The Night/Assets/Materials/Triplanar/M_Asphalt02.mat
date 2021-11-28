@@ -101,6 +101,22 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_2925e98fea7f42b0854d6f9433957884_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 7d607d186a078eb40a9931b14c715ad0, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_3e594f5388df43a1af82eacd800c8633_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 7d607d186a078eb40a9931b14c715ad0, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_84dd7ed8b9ed4523a086e8d6529fc287_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 7d607d186a078eb40a9931b14c715ad0, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_c1b8ec05f886405eaba9f2716a9497b7_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 7d607d186a078eb40a9931b14c715ad0, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _Smoothness:
         m_Texture: {fileID: 2800000, guid: a8ed6a4e13eb35542948de3ebc9a0539, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -183,7 +199,7 @@ Material:
     - _EmissiveExposureWeight: 1
     - _EmissiveIntensity: 1
     - _EmissiveIntensityUnit: 0
-    - _Emissive_Power: 1
+    - _Emissive_Power: 0
     - _EnableBlendModePreserveSpecularLighting: 1
     - _EnableFogOnTransparent: 1
     - _EnableGeometricSpecularAA: 0
@@ -226,7 +242,7 @@ Material:
     - _SmoothnessRemapMax: 1
     - _SmoothnessRemapMin: 0
     - _Smoothness_Or_Roughness: 1
-    - _Smoothness_Power: 1
+    - _Smoothness_Power: 1.9
     - _SpecularAAScreenSpaceVariance: 0.1
     - _SpecularAAThreshold: 0.2
     - _SpecularOcclusionMode: 1
@@ -265,7 +281,7 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 1
     m_Colors:
-    - _Albedo_Tint: {r: 0.2924528, g: 0.2924528, b: 0.2924528, a: 0}
+    - _Albedo_Tint: {r: 0.1509434, g: 0.1509434, b: 0.1509434, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}

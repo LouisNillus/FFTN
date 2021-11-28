@@ -101,6 +101,22 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_2925e98fea7f42b0854d6f9433957884_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 7d607d186a078eb40a9931b14c715ad0, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_3e594f5388df43a1af82eacd800c8633_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 7d607d186a078eb40a9931b14c715ad0, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_84dd7ed8b9ed4523a086e8d6529fc287_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 7d607d186a078eb40a9931b14c715ad0, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_c1b8ec05f886405eaba9f2716a9497b7_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 7d607d186a078eb40a9931b14c715ad0, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _Smoothness:
         m_Texture: {fileID: 2800000, guid: 7b2d6c2e66957864baa6205faa87fa09, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -265,7 +281,7 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 1
     m_Colors:
-    - _Albedo_Tint: {r: 1, g: 0.43936512, b: 0.25, a: 0}
+    - _Albedo_Tint: {r: 0.6320754, g: 0.6320754, b: 0.6320754, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
@@ -281,7 +297,7 @@ Material:
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
     - _ThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
     - _Tiling: {r: 1, g: 1, b: 0, a: 0}
-    - _Tilling: {r: 0.6, g: 0.6, b: 0.6, a: 0}
+    - _Tilling: {r: 0.4, g: 0.4, b: 0.4, a: 0}
     - _TransmittanceColor: {r: 1, g: 1, b: 1, a: 1}
     - _UVDetailsMappingMask: {r: 1, g: 0, b: 0, a: 0}
     - _UVMappingMask: {r: 1, g: 0, b: 0, a: 0}
