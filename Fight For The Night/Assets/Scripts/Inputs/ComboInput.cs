@@ -7,16 +7,19 @@ public class ComboInput
 {
 
     public KeyCode key;
-    public TypeOfInput inputType;
+    public HitType hitType;
     public float comboOffsetTime;
     public float animationTime;
     public HitMemberName member;
     public int damages;
+    public bool hasBeenPlayed;
+
+    public string animationName;
 
     public ComboInput(ComboInput comboInput)
     {
         key = comboInput.key;
-        inputType = comboInput.inputType;
+        hitType = comboInput.hitType;
         comboOffsetTime = comboInput.comboOffsetTime;
         animationTime = comboInput.animationTime;
         member = comboInput.member;
@@ -30,7 +33,7 @@ public class ComboInput
 }
 
 
-public enum TypeOfInput {Hit, Movement}
+public enum HitType {Light, Medium, Heavy}
 
 // Player 1 :
 // Y = 3 = Pied gauche

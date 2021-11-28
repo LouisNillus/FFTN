@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour
 
     public HP_Bar bar;
 
+    public bool isPlayingFinalCombo;
+
     private int indexBuffer;
 
     private bool _isPlayingHitAnimationsWithRootMotion;
@@ -43,54 +45,86 @@ public class PlayerController : MonoBehaviour
         bar.UpdateBar(_hp);
 
         #region AnimationHits
-        if (Input.GetKeyDown(inputProfile.heavyAttack) && !_isPlayingHitAnimationsWithRootMotion)
+
+        if (!isPlayingFinalCombo)
         {
-            Combo validCombo = inputBuffer.AdvancedFindCombo(inputBuffer.heavyInput);
-
-            if(validCombo == null)
+            if (Input.GetKeyDown(inputProfile.heavyAttack))
             {
-                animator.SetTrigger("HeavyHit");
-                IsPlayingAnimation();
-                inputBuffer.AddBuffer(inputBuffer.heavyInput, heavyDuration);
+                Combo validCombo = inputBuffer.AdvancedFindCombo(inputBuffer.heavyInput);
+
+                if (validCombo != null)
+                {
+                    if (validCombo.isFinal)
+                    {
+                        inputBuffer.AddBuffer(validCombo.finalInput, GetClipLengthFromName(validCombo.animationName));
+                        isPlayingFinalCombo = true;
+                    }
+                    else
+                        inputBuffer.AddBuffer(inputBuffer.heavyInput, heavyDuration);
+                }
+                else
+                {
+                    if (!_isPlayingHitAnimationsWithRootMotion)
+                    {
+                        inputBuffer.AddBuffer(inputBuffer.heavyInput, heavyDuration);
+                    }
+                }
             }
-            else
-            {
 
+            if (Input.GetKeyDown(inputProfile.mediumAttack))
+            {
+                Combo validCombo = inputBuffer.AdvancedFindCombo(inputBuffer.mediumInput);
+
+                if (validCombo != null)
+                {
+                    if (validCombo.isFinal)
+                    {
+                        inputBuffer.AddBuffer(validCombo.finalInput, GetClipLengthFromName(validCombo.animationName));
+                        isPlayingFinalCombo = true;
+                    }
+                    else
+                        inputBuffer.AddBuffer(inputBuffer.mediumInput, mediumDuration);
+                }
+                else
+                {
+                    if (!_isPlayingHitAnimationsWithRootMotion)
+                    {
+                        inputBuffer.AddBuffer(inputBuffer.mediumInput, mediumDuration);
+                    }
+                }
+            }
+
+            if (Input.GetKeyDown(inputProfile.lightAttack))
+            {
+                Combo validCombo = inputBuffer.AdvancedFindCombo(inputBuffer.lowInput);
+
+                if (validCombo != null)
+                {
+                    if (validCombo.isFinal)
+                    {
+                        inputBuffer.AddBuffer(validCombo.finalInput, GetClipLengthFromName(validCombo.animationName));
+                        isPlayingFinalCombo = true;
+                    }
+                    else
+                        inputBuffer.AddBuffer(inputBuffer.lowInput, lightDuration);
+                }
+                else
+                {
+                    if (!_isPlayingHitAnimationsWithRootMotion)
+                    {
+                        inputBuffer.AddBuffer(inputBuffer.lowInput, lightDuration);
+                    }
+                }
             }
 
         }
 
-        if (Input.GetKeyDown(inputProfile.mediumAttack) && !_isPlayingHitAnimationsWithRootMotion)
+        if(!_isPlayingHitAnimationsWithRootMotion)
         {
-            Combo validCombo = inputBuffer.AdvancedFindCombo(inputBuffer.mediumInput);
-            if (validCombo == null)
-            {
-                animator.SetTrigger("NormalHit");
-                IsPlayingAnimation();
-                inputBuffer.AddBuffer(inputBuffer.mediumInput, mediumDuration);
-            }
-            else
-            {
-
-            }
+            ReadBuffer();
         }
 
-        if (Input.GetKeyDown(inputProfile.lightAttack) && !_isPlayingHitAnimationsWithRootMotion)
-        {
-            Combo validCombo = inputBuffer.AdvancedFindCombo(inputBuffer.lowInput);
-            if (validCombo == null)
-            {
-                animator.SetTrigger("LightHit");
-                IsPlayingAnimation();
-                inputBuffer.AddBuffer(inputBuffer.lowInput, lightDuration);
-            }
-            else
-            {
-                
-            }
-        }
         #endregion
-
     }
 
     // Update is called once per frame
@@ -136,6 +170,24 @@ public class PlayerController : MonoBehaviour
         #endregion
     }
 
+    public void ReadBuffer()
+    {
+        foreach(ComboInput ci in inputBuffer.queue)
+        {
+            if(!ci.hasBeenPlayed)
+            {
+                if (ci.animationName != "")
+                {
+                    animator.SetTrigger(ci.animationName);
+                    inputBuffer.queue.Clear();
+                }
+                else animator.SetTrigger(SimpleHitAnimationFromEnum(ci.hitType));
+
+                ci.hasBeenPlayed = true;
+            }
+        }
+    }
+
     public void TakeDamages(int value)
     {
         _hp -= value;
@@ -163,7 +215,48 @@ public class PlayerController : MonoBehaviour
                 case "HighKick":
                     heavyDuration = clip.length / animator.GetFloat("HeavySpeed");
                     break;
+                case "dfg":
+                    heavyDuration = clip.length / animator.GetFloat("HeavySpeed");
+                    break;
+                case "sjfgdj":
+                    heavyDuration = clip.length / animator.GetFloat("HeavySpeed");
+                    break;
+                case "sdfghsdfh":
+                    heavyDuration = clip.length / animator.GetFloat("HeavySpeed");
+                    break;
+                case "fgdjhfgd,":
+                    heavyDuration = clip.length / animator.GetFloat("HeavySpeed");
+                    break;
+                case "hsdfghsdghj":
+                    heavyDuration = clip.length / animator.GetFloat("HeavySpeed");
+                    break;                    
             }
         }
+    }
+
+    public float GetClipLengthFromName(string name)
+    {
+        switch(name)
+        {
+            case "":
+                return lightDuration;
+        }
+
+        return default;
+    }
+
+    public string SimpleHitAnimationFromEnum(HitType hit)
+    {
+        switch (hit)
+        {
+            case HitType.Light:
+                return "LightHit";
+            case HitType.Medium:
+                return "NormalHit";
+            case HitType.Heavy:
+                return "HeavyHit";
+        }
+
+        return "";
     }
 }
