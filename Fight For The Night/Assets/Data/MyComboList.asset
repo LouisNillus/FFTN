@@ -12,68 +12,107 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f22d98840794ba47bab3d7267cbb5fc, type: 3}
   m_Name: MyComboList
   m_EditorClassIdentifier: 
+  low: 350
+  mid: 352
+  high: 353
   combos:
   - comboName: Hello Combo
     inputs:
-    - key: 100
-      inputType: 0
-      castTime: 0
-    - key: 103
+    - key: 353
       inputType: 1
       castTime: 0
-    - key: 103
-      inputType: 0
+      member: 0
+      damages: 0
+    - key: 352
+      inputType: 1
       castTime: 0
-    - key: 100
-      inputType: 0
+      member: 0
+      damages: 0
+    - key: 352
+      inputType: 1
       castTime: 0
+      member: 0
+      damages: 0
+    - key: 353
+      inputType: 1
+      castTime: 0
+      member: 0
+      damages: 0
     animationName: 
     damages: 0
+    member: 0
   - comboName: Le Classico
     inputs:
-    - key: 103
+    - key: 350
       inputType: 0
       castTime: 0
-    - key: 100
+      member: 0
+      damages: 0
+    - key: 350
       inputType: 0
       castTime: 0
-    - key: 100
+      member: 0
+      damages: 0
+    - key: 352
       inputType: 0
       castTime: 0
-    - key: 103
+      member: 0
+      damages: 0
+    - key: 352
       inputType: 0
       castTime: 0
+      member: 0
+      damages: 0
     animationName: 
     damages: 0
+    member: 0
   - comboName: 5 O' 5
     inputs:
     - key: 103
       inputType: 0
       castTime: 0
+      member: 0
+      damages: 0
     - key: 103
       inputType: 0
       castTime: 0
+      member: 0
+      damages: 0
     - key: 103
       inputType: 0
       castTime: 0
+      member: 0
+      damages: 0
     - key: 100
       inputType: 0
       castTime: 0
+      member: 0
+      damages: 0
     - key: 100
       inputType: 0
       castTime: 0
+      member: 0
+      damages: 0
     animationName: 
     damages: 0
+    member: 0
   - comboName: Cheval De Troie
     inputs:
     - key: 100
       inputType: 0
       castTime: 0
+      member: 0
+      damages: 0
     - key: 103
       inputType: 0
       castTime: 0
-    - key: 103
+      member: 0
+      damages: 0
+    - key: 100
       inputType: 0
       castTime: 0
+      member: 0
+      damages: 0
     animationName: 
     damages: 0
+    member: 0
