@@ -1639,7 +1639,7 @@ Animator:
   m_GameObject: {fileID: 5736475603886482621}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 41b2622b92fdd0f44a42f38d9ccc853b, type: 3}
-  m_Controller: {fileID: 9100000, guid: cf2fa8b8aebac094e89b76bfaa335df5, type: 2}
+  m_Controller: {fileID: 9100000, guid: 0b074d480e291614f89145a1677c6eb0, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -1717,9 +1717,9 @@ MonoBehaviour:
     damages: 8
     hasBeenPlayed: 0
     animationName: 
-  comboList: {fileID: 11400000, guid: f1606c762aaf5264faabbc0dfd934359, type: 2}
+  comboList: {fileID: 11400000, guid: f108e282eeb73e3409d6f65533072126, type: 2}
   clearCooldown: 0.5
-  phm: {fileID: 0}
+  phm: {fileID: 7732630917913457676}
   lastInput:
     key: 0
     hitType: 0
