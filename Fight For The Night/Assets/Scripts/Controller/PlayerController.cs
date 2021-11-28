@@ -146,7 +146,7 @@ public class PlayerController : MonoBehaviour
         _isPlayingHitAnimationsWithRootMotion = true;
     }
 
-    public float lightDuration, mediumDuration, heavyDuration;
+    float lightDuration, mediumDuration, heavyDuration;
     public void GetClipsLength()
     {
         AnimationClip[] clips = animator.runtimeAnimatorController.animationClips;
