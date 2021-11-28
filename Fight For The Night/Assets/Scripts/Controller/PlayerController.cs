@@ -40,55 +40,57 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         bar.UpdateBar(_hp);
-    }
 
-    // Update is called once per frame
-    void FixedUpdate()
-    {
         #region AnimationHits
-        if (Input.GetKey(inputProfile.heavyAttack))
+        if (Input.GetKeyDown(inputProfile.heavyAttack))
         {
             inputBuffer.AddBuffer(inputBuffer.heavyInput);
-            animator.SetTrigger("HeavyHit");
-            animator.applyRootMotion = true;
-            _isPlayingHitAnimationsWithRootMotion = true;
         }
 
-        if (Input.GetKey(inputProfile.mediumAttack))
+        if (Input.GetKeyDown(inputProfile.mediumAttack))
         {
             inputBuffer.AddBuffer(inputBuffer.mediumInput);
-            animator.SetTrigger("NormalHit");
-            animator.applyRootMotion = true;
-            _isPlayingHitAnimationsWithRootMotion = true;
         }
 
-        if (Input.GetKey(inputProfile.lightAttack))
+        if (Input.GetKeyDown(inputProfile.lightAttack))
         {
             inputBuffer.AddBuffer(inputBuffer.lowInput);
-            animator.SetTrigger("LightHit");
-            animator.applyRootMotion = true;
-            _isPlayingHitAnimationsWithRootMotion = true;
         }
         #endregion
 
-        if (!_isPlayingHitAnimationsWithRootMotion && inputBuffer.queue.Count != 0)
+        if (inputBuffer.queue.Count < indexBuffer)
+        {
+            indexBuffer = 0;
+        }
+
+        if (!_isPlayingHitAnimationsWithRootMotion && inputBuffer.queue.Count != 0 && indexBuffer < inputBuffer.queue.Count)
         {
             KeyCode key = inputBuffer.queue[indexBuffer].key;
-
             switch (key)
             {
                 case KeyCode k when k == inputProfile.lightAttack:
                     animator.SetTrigger("LightHit");
                     break;
                 case KeyCode k when k == inputProfile.mediumAttack:
+                    animator.SetTrigger("NormalHit");
                     break;
                 case KeyCode k when k == inputProfile.heavyAttack:
+                    animator.SetTrigger("HeavyHit");
                     break;
                 default:
                     break;
             }
-        }
 
+            animator.applyRootMotion = true;
+            _isPlayingHitAnimationsWithRootMotion = true;
+
+            ++indexBuffer;
+        }
+    }
+
+    // Update is called once per frame
+    void FixedUpdate()
+    {
         // Get Movement
         float moveX = Input.GetAxis(inputProfile.horizontalAxis);
 
