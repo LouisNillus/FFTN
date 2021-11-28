@@ -27,6 +27,8 @@ public class PlayerController : MonoBehaviour
     public HP_Bar bar;
 
     public bool isPlayingFinalCombo;
+    public bool canMove = true;
+
 
     private bool _isPlayingHitAnimationsWithRootMotion;
     public bool isPlayingHitAnimationsWithRootMotion { set { _isPlayingHitAnimationsWithRootMotion = value; } }
@@ -50,8 +52,10 @@ public class PlayerController : MonoBehaviour
             {
                 Combo validCombo = inputBuffer.AdvancedFindCombo(inputBuffer.heavyInput);
 
+
                 if (validCombo != null)
                 {
+                Debug.Log(validCombo.comboName);
                     if (validCombo.isFinal)
                     {
                         inputBuffer.AddBuffer(validCombo.inputs.Last(), GetClipLengthFromName(validCombo.inputs.Last().animationName));
@@ -74,12 +78,15 @@ public class PlayerController : MonoBehaviour
 
                 if (validCombo != null)
                 {
+                Debug.Log(validCombo.comboName);
                     if (validCombo.isFinal)
                     {
                         inputBuffer.AddBuffer(validCombo.inputs.Last(), GetClipLengthFromName(validCombo.inputs.Last().animationName));
                     }
-                    else
+                    else                  
                         inputBuffer.AddBuffer(inputBuffer.mediumInput, mediumDuration);
+                    
+                   // Debug.Break();
                 }
                 else
                 {
@@ -96,6 +103,7 @@ public class PlayerController : MonoBehaviour
 
                 if (validCombo != null)
                 {
+                Debug.Log(validCombo.comboName);
                     if (validCombo.isFinal)
                     {
                         inputBuffer.AddBuffer(validCombo.inputs.Last(), GetClipLengthFromName(validCombo.inputs.Last().animationName));
@@ -114,10 +122,13 @@ public class PlayerController : MonoBehaviour
 
         }
 
-        if(!_isPlayingHitAnimationsWithRootMotion)
+        if (!_isPlayingHitAnimationsWithRootMotion)
         {
+            canMove = true;
             ReadBuffer();
         }
+        else canMove = false;
+        
 
         #endregion
     }
@@ -125,43 +136,45 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        // Get Movement
-        float moveX = Input.GetAxis(inputProfile.horizontalAxis);
 
-        if ((moveX < 0.1 && moveX > -0.1) || _isPlayingHitAnimationsWithRootMotion)
-            animator.applyRootMotion = true;
-        else
-        {
-            animator.applyRootMotion = false;
-        }
+            // Get Movement
+            float moveX = Input.GetAxis(inputProfile.horizontalAxis);
 
-        #region AnimationMovements
-        if (moveX != 0.0f)
-        {
-            if (moveX < 0.0f)
+            if ((moveX < 0.1 && moveX > -0.1) || _isPlayingHitAnimationsWithRootMotion)
+                animator.applyRootMotion = true;
+            else
             {
-                // Apply movement
-                selfRigidbody.velocity = Vector3.right * moveX * backwardSpeed * Time.deltaTime;
-            }
-            else if (moveX > 0.0f)
-            {
-                // Apply movement
-                selfRigidbody.velocity = Vector3.right * moveX * speed * Time.deltaTime;
+                animator.applyRootMotion = false;
             }
 
-            // Update Anim
-            animator.SetFloat("Speed", selfRigidbody.velocity.x, 0.02f, Time.deltaTime);
-        }
-        else
-        {
-            selfRigidbody.velocity = Vector3.zero;
-            if (lastMoveX == moveX)
+            #region AnimationMovements
+            if (moveX != 0.0f && canMove)
             {
-                animator.SetFloat("Speed", moveX, 0.02f, Time.deltaTime);
-            }
-        }
+                if (moveX < 0.0f)
+                {
+                    // Apply movement
+                    selfRigidbody.velocity = Vector3.right * moveX * backwardSpeed * Time.deltaTime;
+                }
+                else if (moveX > 0.0f)
+                {
+                    // Apply movement
+                    selfRigidbody.velocity = Vector3.right * moveX * speed * Time.deltaTime;
+                }
 
-        _lastMoveX = moveX;
+                // Update Anim
+                animator.SetFloat("Speed", selfRigidbody.velocity.x, 0.02f, Time.deltaTime);
+            }
+            else
+            {
+                selfRigidbody.velocity = Vector3.zero;
+                if (lastMoveX == moveX)
+                {
+                    animator.SetFloat("Speed", moveX, 0.02f, Time.deltaTime);
+                }
+            }
+
+            _lastMoveX = moveX;
+        
         #endregion
     }
 
@@ -181,6 +194,7 @@ public class PlayerController : MonoBehaviour
                 }
                 else animator.SetTrigger(SimpleHitAnimationFromEnum(ci.hitType));
 
+                inputBuffer.currentInput = ci;
                 ci.hasBeenPlayed = true;
             }
         }
@@ -191,7 +205,8 @@ public class PlayerController : MonoBehaviour
         _hp -= value;
     }
 
-    float lightDuration, mediumDuration, heavyDuration;
+    [Sirenix.OdinInspector.ReadOnly]
+    public float lightDuration, mediumDuration, heavyDuration;
     public void GetClipsLength()
     {
         AnimationClip[] clips = animator.runtimeAnimatorController.animationClips;

@@ -23,6 +23,9 @@ public class Buffer : MonoBehaviour
     [ReadOnly]
     public ComboInput lastInput;
 
+    [ReadOnly]
+    public ComboInput currentInput;
+
     PlayerController controller;
 
     // Start is called before the first frame update
@@ -57,19 +60,22 @@ public class Buffer : MonoBehaviour
         EnableLastBufferInputHit();
     }
 
-
+    float fullBufferTime = 0f;
     public IEnumerator ClearDelay(ComboInput ci)
     {
         float time = 0f;
 
-        while(time < ci.CastTime())
+        fullBufferTime += ci.CastTime();
+
+        while (time < fullBufferTime)
         {
             time += Time.deltaTime;
             yield return null;
 
         }
 
-        queue.Clear();        
+        queue.Clear();
+        fullBufferTime = 0f;
     }
 
     public bool castLock = false;
@@ -85,8 +91,8 @@ public class Buffer : MonoBehaviour
     {
         if(queue.Count > 0 && !castLock)
         {
-            phm.GetHitMemberFromType(queue.Last().member).Enable();
-            StartCoroutine(CastCoolDown(queue.Last().animationTime));
+            phm.GetHitMemberFromType(currentInput.member).Enable();
+            StartCoroutine(CastCoolDown(currentInput.animationTime));
         }
     }
 
@@ -102,7 +108,7 @@ public class Buffer : MonoBehaviour
             if (c.CompileToString().Length > 0 && CompileToString(length).Length > 0)
                 if (c.CompileToString() == CompileToString(length))
                 {
-                    queue.Clear();
+                    //queue.Clear();
                     return c;
                 }
         }
@@ -139,30 +145,36 @@ public class Buffer : MonoBehaviour
     {
         queue.Add(previewInput);
 
+        Combo c2 = FindCombo(2);
         Combo c3 = FindCombo(3);
         Combo c4 = FindCombo(4);
         Combo c5 = FindCombo(5);
 
-        if (c3 != null)
+        queue.Remove(previewInput);
+        
+        if (c5 != null)
         {
             DisableLastHitsMembers();
-            return c3;
+            return c5;
         }
         else if (c4 != null)
         {
             DisableLastHitsMembers();
             return c4;
         }
-        else if (c5 != null)
+        else if (c3 != null)
         {
             DisableLastHitsMembers();
-            return c5;
+            return c3;
         }
-        else
+        else if (c2 != null)
         {
-            queue.Remove(previewInput);
-            return null;
+            DisableLastHitsMembers();
+            return c2;
         }
+
+
+        return null;
     }
 
 }
