@@ -12,16 +12,18 @@ public class ComboInput
     public HitMemberName member;
     public int damages;
 
-    public ComboInput(KeyCode key, TypeOfInput inputType, float castTime = 0f)
+    public ComboInput(ComboInput comboInput)
     {
-        this.key = key;
-        this.inputType = inputType;
-        this.castTime = castTime;
+        key = comboInput.key;
+        inputType = comboInput.inputType;
+        castTime = comboInput.castTime;
+        member = comboInput.member;
+        damages = comboInput.damages;
     }
 }
 
 
-public enum TypeOfInput {Movement, Hit}
+public enum TypeOfInput {Hit, Movement}
 
 // Player 1 :
 // Y = 3 = Pied gauche

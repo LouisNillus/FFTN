@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class HitMember : MonoBehaviour
 {
@@ -13,8 +14,12 @@ public class HitMember : MonoBehaviour
     {
         if(other.CompareTag(phm.otherPlayerTag) && canHit)
         {
-            Debug.Log(other.name);
-            canHit = false;
+            if(phm.buffer.lastInput != null)
+            {
+                other.GetComponent<BodyPart>().associatedPlayer.TakeDamages(phm.buffer.lastInput.damages);
+                Debug.Log(other.name);
+                canHit = false;
+            }
         }
     }
 
