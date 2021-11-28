@@ -21,7 +21,7 @@ public class HitAnimationBehaviour : StateMachineBehaviour
     {
         PlayerController player = animator.GetComponent<PlayerController>();
         player.isPlayingHitAnimationsWithRootMotion = false;
-        player.isCurrentAnimIsFinished = true;
+        //player.isCurrentAnimIsFinished = true;
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
