@@ -17,6 +17,7 @@ public class HitMember : MonoBehaviour
             if(phm.buffer.lastInput != null)
             {
                 other.GetComponent<BodyPart>().associatedPlayer.TakeDamages(phm.buffer.lastInput.damages);
+                other.GetComponent<BodyPart>().PlayAnimation();
                 Debug.Log(other.name);
                 canHit = false;
             }
