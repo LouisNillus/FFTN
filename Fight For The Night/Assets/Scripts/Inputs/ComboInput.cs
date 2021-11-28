@@ -8,7 +8,8 @@ public class ComboInput
 
     public KeyCode key;
     public TypeOfInput inputType;
-    public float castTime;
+    public float comboOffsetTime;
+    public float animationTime;
     public HitMemberName member;
     public int damages;
 
@@ -16,9 +17,15 @@ public class ComboInput
     {
         key = comboInput.key;
         inputType = comboInput.inputType;
-        castTime = comboInput.castTime;
+        comboOffsetTime = comboInput.comboOffsetTime;
+        animationTime = comboInput.animationTime;
         member = comboInput.member;
         damages = comboInput.damages;
+    }
+
+    public float CastTime()
+    {
+        return animationTime + comboOffsetTime;
     }
 }
 

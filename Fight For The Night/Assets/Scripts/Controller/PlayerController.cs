@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GetClipsLength();
         _isPlayingHitAnimationsWithRootMotion = false;
         indexBuffer = 0;
     }
@@ -42,50 +43,54 @@ public class PlayerController : MonoBehaviour
         bar.UpdateBar(_hp);
 
         #region AnimationHits
-        if (Input.GetKeyDown(inputProfile.heavyAttack))
+        if (Input.GetKeyDown(inputProfile.heavyAttack) && !_isPlayingHitAnimationsWithRootMotion)
         {
-            inputBuffer.AddBuffer(inputBuffer.heavyInput);
+            Combo validCombo = inputBuffer.AdvancedFindCombo(inputBuffer.heavyInput);
+
+            if(validCombo == null)
+            {
+                animator.SetTrigger("HeavyHit");
+                IsPlayingAnimation();
+                inputBuffer.AddBuffer(inputBuffer.heavyInput, heavyDuration);
+            }
+            else
+            {
+
+            }
+
         }
 
-        if (Input.GetKeyDown(inputProfile.mediumAttack))
+        if (Input.GetKeyDown(inputProfile.mediumAttack) && !_isPlayingHitAnimationsWithRootMotion)
         {
-            inputBuffer.AddBuffer(inputBuffer.mediumInput);
+            Combo validCombo = inputBuffer.AdvancedFindCombo(inputBuffer.mediumInput);
+            if (validCombo == null)
+            {
+                animator.SetTrigger("NormalHit");
+                IsPlayingAnimation();
+                inputBuffer.AddBuffer(inputBuffer.mediumInput, mediumDuration);
+            }
+            else
+            {
+
+            }
         }
 
-        if (Input.GetKeyDown(inputProfile.lightAttack))
+        if (Input.GetKeyDown(inputProfile.lightAttack) && !_isPlayingHitAnimationsWithRootMotion)
         {
-            inputBuffer.AddBuffer(inputBuffer.lowInput);
+            Combo validCombo = inputBuffer.AdvancedFindCombo(inputBuffer.lowInput);
+            if (validCombo == null)
+            {
+                animator.SetTrigger("LightHit");
+                IsPlayingAnimation();
+                inputBuffer.AddBuffer(inputBuffer.lowInput, lightDuration);
+            }
+            else
+            {
+                
+            }
         }
         #endregion
 
-        if (inputBuffer.queue.Count < indexBuffer)
-        {
-            indexBuffer = 0;
-        }
-
-        if (!_isPlayingHitAnimationsWithRootMotion && inputBuffer.queue.Count != 0 && indexBuffer < inputBuffer.queue.Count)
-        {
-            KeyCode key = inputBuffer.queue[indexBuffer].key;
-            switch (key)
-            {
-                case KeyCode k when k == inputProfile.lightAttack:
-                    animator.SetTrigger("LightHit");
-                    break;
-                case KeyCode k when k == inputProfile.mediumAttack:
-                    animator.SetTrigger("NormalHit");
-                    break;
-                case KeyCode k when k == inputProfile.heavyAttack:
-                    animator.SetTrigger("HeavyHit");
-                    break;
-                default:
-                    break;
-            }
-
-            animator.applyRootMotion = true;
-            _isPlayingHitAnimationsWithRootMotion = true;
-
-            ++indexBuffer;
-        }
     }
 
     // Update is called once per frame
@@ -134,5 +139,31 @@ public class PlayerController : MonoBehaviour
     public void TakeDamages(int value)
     {
         _hp -= value;
+    }
+
+    void IsPlayingAnimation()
+    {
+        _isPlayingHitAnimationsWithRootMotion = true;
+    }
+
+    public float lightDuration, mediumDuration, heavyDuration;
+    public void GetClipsLength()
+    {
+        AnimationClip[] clips = animator.runtimeAnimatorController.animationClips;
+        foreach (AnimationClip clip in clips)
+        {
+            switch (clip.name)
+            {
+                case "LightPunch":
+                    lightDuration = clip.length / animator.GetFloat("LightSpeed");
+                    break;
+                case "NormalPunch":
+                    mediumDuration = clip.length / animator.GetFloat("MediumSpeed");
+                    break;
+                case "HighKick":
+                    heavyDuration = clip.length / animator.GetFloat("HeavySpeed");
+                    break;
+            }
+        }
     }
 }

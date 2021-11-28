@@ -38,22 +38,31 @@ public class Buffer : MonoBehaviour
         else lastInput = null;
     }
 
-    public void AddBuffer(ComboInput comboInput)
+    public void AddBuffer(ComboInput comboInput, float animationTime)
     {
         ComboOverloadCheck();
+
+
         if (clearDelay != null) StopCoroutine(clearDelay);
-        queue.Add(new ComboInput(comboInput));
-        clearDelay = StartCoroutine(ClearDelay());
-        Debug.Log(AdvancedFindCombo()?.comboName);
+
+        Debug.Log("Hit");
+
+        ComboInput ci = new ComboInput(comboInput);
+        ci.animationTime = animationTime;
+        queue.Add(ci);
+
+        clearDelay = StartCoroutine(ClearDelay(ci));
+
+        //Debug.Log(AdvancedFindCombo()?.comboName);
         EnableLastBufferInputHit();
     }
 
-    public IEnumerator ClearDelay()
-    {
 
+    public IEnumerator ClearDelay(ComboInput ci)
+    {
         float time = 0f;
 
-        while(time < clearCooldown)
+        while(time < ci.CastTime())
         {
             time += Time.deltaTime;
             yield return null;
@@ -77,7 +86,7 @@ public class Buffer : MonoBehaviour
         if(queue.Count > 0 && !castLock)
         {
             phm.GetHitMemberFromType(queue.Last().member).Enable();
-            StartCoroutine(CastCoolDown(queue.Last().castTime));
+            StartCoroutine(CastCoolDown(queue.Last().animationTime));
         }
     }
 
@@ -100,7 +109,7 @@ public class Buffer : MonoBehaviour
 
         return null;
     }
-
+    
     public void DisableLastHitsMembers()
     {
         foreach (ComboInput ci in queue)
@@ -126,8 +135,9 @@ public class Buffer : MonoBehaviour
         return result;
     }
 
-    public Combo AdvancedFindCombo()
+    public Combo AdvancedFindCombo(ComboInput previewInput)
     {
+        queue.Add(previewInput);
 
         Combo c3 = FindCombo(3);
         Combo c4 = FindCombo(4);
@@ -148,6 +158,11 @@ public class Buffer : MonoBehaviour
             DisableLastHitsMembers();
             return c5;
         }
-        else return null;
+        else
+        {
+            queue.Remove(previewInput);
+            return null;
+        }
     }
+
 }
